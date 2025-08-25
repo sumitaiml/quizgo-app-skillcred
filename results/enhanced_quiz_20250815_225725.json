@@ -1,0 +1,90 @@
+{
+  "filename": "uploaded_20250815_225718.pdf",
+  "generated_at": "2025-08-15T22:57:25.956679",
+  "num_questions": 8,
+  "difficulty": "Medium",
+  "question_types": {
+    "mcq": 2,
+    "true_false": 2,
+    "fill_blank": 2,
+    "essay": 2
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) but",
+          "B) and",
+          "C) because",
+          "D) or"
+        ],
+        "correct_answer": "C",
+        "explanation": "Because is a subordinating conjunction, not a coordinating conjunction."
+      },
+      {
+        "question": "A comma is always required before a coordinating conjunction when joining two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "A comma is generally required, but it can be omitted if the independent clauses are very short."
+      },
+      {
+        "question": "The acronym FANBOYS is used to remember which type of conjunction?",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "coordinating",
+        "explanation": "FANBOYS is a mnemonic device for remembering the coordinating conjunctions."
+      },
+      {
+        "question": "Explain the difference between coordinating and subordinating conjunctions, providing examples of each and illustrating their use in sentences.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should define coordinating and subordinating conjunctions.  It should provide at least three examples of each type, clearly showing their function in sample sentences.  The explanation should highlight the difference in how they connect clauses (equal rank vs. dependent/independent clause relationship).  The answer should demonstrate a clear understanding of the grammatical roles of both types of conjunctions.",
+        "explanation": "The essay should demonstrate a nuanced understanding of conjunction types and their grammatical functions beyond simple memorization of lists."
+      },
+      {
+        "question": "Which of the following is an example of correlative coordinating conjunctions?",
+        "type": "mcq",
+        "options": [
+          "A) although",
+          "B) because",
+          "C) both...and",
+          "D) while"
+        ],
+        "correct_answer": "C",
+        "explanation": "Both...and is a pair of words that functions as correlative coordinating conjunctions."
+      },
+      {
+        "question": "When joining three or more words, phrases, or subordinate clauses with a coordinating conjunction, commas are only necessary before the final conjunction.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Commas are typically used between each item in a series, regardless of the presence of a final conjunction."
+      },
+      {
+        "question": "The _______ conjunction connects a dependent clause to an independent clause, showing the relationship between them.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "subordinating",
+        "explanation": "Subordinating conjunctions introduce dependent clauses."
+      },
+      {
+        "question": "Provide three examples of sentences that utilize different types of conjunctions (coordinating, correlative coordinating, and subordinating).  Explain the function of the conjunction in each sentence.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "The answer should include three sentences, each using a different type of conjunction (coordinating, correlative coordinating, and subordinating).  A clear explanation of each conjunction's role in the structure and meaning of the sentence must be provided.  Examples should demonstrate a thorough understanding of the function of each conjunction type.",
+        "explanation": "The essay should showcase the practical application of conjunction knowledge and understanding of grammatical function."
+      }
+    ]
+  }
+}

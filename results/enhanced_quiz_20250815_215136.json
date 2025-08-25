@@ -1,0 +1,90 @@
+{
+  "filename": "uploaded_20250815_215128.pdf",
+  "generated_at": "2025-08-15T21:51:36.467960",
+  "num_questions": 8,
+  "difficulty": "Medium",
+  "question_types": {
+    "mcq": 2,
+    "true_false": 2,
+    "fill_blank": 2,
+    "essay": 2
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) and",
+          "B) but",
+          "C) because",
+          "D) or"
+        ],
+        "correct_answer": "C",
+        "explanation": "Because is a subordinating conjunction, not a coordinating conjunction."
+      },
+      {
+        "question": "A comma is always required before a coordinating conjunction when joining two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "A comma is generally required, but it can be omitted if the independent clauses are very short."
+      },
+      {
+        "question": "The acronym FANBOYS is used to remember which type of conjunctions?",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "coordinating",
+        "explanation": "FANBOYS is a mnemonic device for remembering the seven coordinating conjunctions."
+      },
+      {
+        "question": "Explain the difference between coordinating and subordinating conjunctions, providing examples of each and illustrating their use in sentences.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should include: 1) Definition of coordinating conjunctions with examples (FANBOYS) and illustration of their use in joining elements of equal grammatical rank.  2) Definition of subordinating conjunctions with examples (when, because, although, etc.) and illustration of their use in joining dependent and independent clauses. 3) Clear explanation of how the grammatical function differs between the two types of conjunctions.  4) Examples demonstrating correct punctuation with each type. ",
+        "explanation": "The essay should demonstrate understanding of the grammatical function and usage of both coordinating and subordinating conjunctions."
+      },
+      {
+        "question": "What punctuation is typically used when joining three or more words with a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) Semicolon between each word",
+          "B) Commas between each word, optional comma before conjunction",
+          "C) No commas needed",
+          "D) Only a comma before the conjunction"
+        ],
+        "correct_answer": "B",
+        "explanation": "Commas separate items in a series; the comma before the conjunction is optional."
+      },
+      {
+        "question": "Correlative coordinating conjunctions always come in pairs.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "By definition, correlative conjunctions are used in pairs."
+      },
+      {
+        "question": "The _______ conjunctions connect dependent clauses to independent clauses, while _______ conjunctions connect elements of equal grammatical rank.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "subordinating, coordinating",
+        "explanation": "This question tests the understanding of the fundamental difference between the two types of conjunctions."
+      },
+      {
+        "question": "Provide three examples of correlative coordinating conjunctions and construct a sentence using each pair, demonstrating their correct usage.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "The answer should provide three different pairs of correlative conjunctions (e.g.,  both...and,  either...or, neither...nor) and correctly use each pair in a separate, grammatically correct sentence.  The sentences should clearly demonstrate the paired nature of the conjunctions and the elements they connect.",
+        "explanation": "The essay should demonstrate understanding of the function and proper usage of correlative coordinating conjunctions."
+      }
+    ]
+  }
+}

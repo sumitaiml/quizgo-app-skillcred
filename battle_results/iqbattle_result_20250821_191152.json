@@ -1,0 +1,114 @@
+{
+  "battle_document": "battle_document_20250821_191136.pdf",
+  "deployment_timestamp": "2025-08-21T19:11:52.004343",
+  "battle_parameters": {
+    "num_questions": 8,
+    "difficulty_protocol": "Medium",
+    "battle_mode": "mcq",
+    "question_formation": {
+      "mcq": 8
+    }
+  },
+  "battle_system": "IQBattle_v2.0_AI_Enhanced",
+  "battle_commander": "Google_AI_Gemini_1.5_Flash",
+  "battle_data": {
+    "questions": [
+      {
+        "question": "According to the briefing, which aspect of a computer system deals with the physical components like circuits and adders?",
+        "type": "mcq",
+        "options": [
+          "A) Computer Architecture",
+          "B) Computer Organization",
+          "C) Instruction Set Architecture (ISA)",
+          "D) Microprogramming"
+        ],
+        "correct_answer": "B",
+        "explanation": "Computer Organization focuses on the physical implementation and interconnection of hardware components."
+      },
+      {
+        "question": "The briefing mentions Von-Neumann architecture.  What is a key characteristic of this architecture?",
+        "type": "mcq",
+        "options": [
+          "A) Separate memory for instructions and data",
+          "B) Parallel processing of instructions",
+          "C) Shared memory for instructions and data",
+          "D)  No central processing unit"
+        ],
+        "correct_answer": "C",
+        "explanation": "Von-Neumann architecture uses a single memory space for both instructions and data."
+      },
+      {
+        "question": "Which book is cited for information on register transfer and micro-operations?",
+        "type": "mcq",
+        "options": [
+          "A) Hamacher et al., Computer Organization",
+          "B) Mano, Computer System Architecture",
+          "C) Both A and B",
+          "D) Neither A nor B"
+        ],
+        "correct_answer": "B",
+        "explanation": "Mano's 'Computer System Architecture' is specifically referenced for this topic."
+      },
+      {
+        "question": "What is the primary difference between Computer Organization and Computer Architecture, as described in the briefing?",
+        "type": "mcq",
+        "options": [
+          "A) Organization is high-level, Architecture is low-level",
+          "B) Organization is 'what to do', Architecture is 'how to do'",
+          "C) Architecture is 'what to do', Organization is 'how to do'",
+          "D) There is no significant difference"
+        ],
+        "correct_answer": "C",
+        "explanation": "Architecture defines the functionality ('what to do'), while organization describes the implementation ('how to do')."
+      },
+      {
+        "question": "According to the briefing, what does the term 'generation' in computer terminology primarily refer to?",
+        "type": "mcq",
+        "options": [
+          "A) The size of the computer's memory",
+          "B) The processing speed of the CPU",
+          "C) A change in technology, including both hardware and software",
+          "D) The number of transistors in the CPU"
+        ],
+        "correct_answer": "C",
+        "explanation": "The briefing states that 'generation' encompasses changes in both hardware and software technologies."
+      },
+      {
+        "question": "The briefing mentions error-detecting codes.  What is the purpose of these codes?",
+        "type": "mcq",
+        "options": [
+          "A) To encrypt data for security",
+          "B) To increase data storage capacity",
+          "C) To detect errors in data transmission or storage",
+          "D) To compress data for efficient transmission"
+        ],
+        "correct_answer": "C",
+        "explanation": "Error-detecting codes are designed to identify errors that may occur during data handling."
+      },
+      {
+        "question": "Which of the following is NOT a functional unit mentioned or implied in the provided text?",
+        "type": "mcq",
+        "options": [
+          "A) Memory",
+          "B) Arithmetic Logic Unit (ALU)",
+          "C) Control Unit",
+          "D) Network Interface Card (NIC)"
+        ],
+        "correct_answer": "D",
+        "explanation": "While the briefing mentions functional units, a network interface card is not explicitly discussed."
+      },
+      {
+        "question": "The briefing lists Hamacher et al.'s 'Computer Organization' as a source. Which edition and what pages are referenced?",
+        "type": "mcq",
+        "options": [
+          "A) 4th edition, pages 1-23",
+          "B) 5th edition, pages 1-23",
+          "C) 3rd edition, pages 67-91",
+          "D) 2nd edition, pages 1-23"
+        ],
+        "correct_answer": "B",
+        "explanation": "The briefing clearly states the 5th edition and pages 1-23 for Hamacher et al's book."
+      }
+    ]
+  }
+}

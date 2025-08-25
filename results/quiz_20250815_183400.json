@@ -1,0 +1,236 @@
+{
+  "filename": "uploaded_20250815_183346.pdf",
+  "generated_at": "2025-08-15T18:34:00.878527",
+  "num_questions": 20,
+  "difficulty": "Medium",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) But",
+          "B) Or",
+          "C) Since",
+          "D) Yet"
+        ],
+        "correct_answer": "C",
+        "explanation": "Since is a subordinating conjunction, not a coordinating conjunction."
+      },
+      {
+        "question": "A comma is always required before a coordinating conjunction when joining two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Commas are generally used before coordinating conjunctions joining independent clauses, but can be omitted if the clauses are very short."
+      },
+      {
+        "question": "What is the acronym used to remember the coordinating conjunctions?",
+        "type": "mcq",
+        "options": [
+          "A) COWBOY",
+          "B) FANBOYS",
+          "C) CANDY",
+          "D) SMART"
+        ],
+        "correct_answer": "B",
+        "explanation": "FANBOYS stands for For, And, Nor, But, Or, Yet, So."
+      },
+      {
+        "question": "Conjunctions primarily serve to:",
+        "type": "mcq",
+        "options": [
+          "A) Modify verbs",
+          "B) Connect words, phrases, or clauses",
+          "C) Act as subjects in sentences",
+          "D) Indicate tense"
+        ],
+        "correct_answer": "B",
+        "explanation": "Conjunctions are connecting words that link different parts of a sentence."
+      },
+      {
+        "question": "When joining three or more words with a coordinating conjunction, commas should be used between each item in the series.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "Commas separate items in a series; a comma before the coordinating conjunction is optional."
+      },
+      {
+        "question": "Which type of conjunction is used in pairs?",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating Conjunctions",
+          "B) Correlative Coordinating Conjunctions",
+          "C) Subordinating Conjunctions",
+          "D) Adverbial Conjunctions"
+        ],
+        "correct_answer": "B",
+        "explanation": "Correlative coordinating conjunctions, such as 'both...and', are used in pairs."
+      },
+      {
+        "question": "The sentence 'John went to the store, and he bought milk' requires a comma before the conjunction 'and'.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "This sentence joins two independent clauses and thus requires a comma before the coordinating conjunction."
+      },
+      {
+        "question": "What type of conjunction links clauses of unequal rank?",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating Conjunctions",
+          "B) Subordinating Conjunctions",
+          "C) Correlative Conjunctions",
+          "D) Adverbial Conjunctions"
+        ],
+        "correct_answer": "B",
+        "explanation": "Subordinating conjunctions join a dependent clause to an independent clause."
+      },
+      {
+        "question": "'Although' is an example of which type of conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating",
+          "B) Subordinating",
+          "C) Correlative",
+          "D) Adverbial"
+        ],
+        "correct_answer": "B",
+        "explanation": "'Although' introduces a dependent clause, making it a subordinating conjunction."
+      },
+      {
+        "question": "Conjunctions are inflected, meaning their form changes based on grammatical function.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Conjunctions do not have inflection; their function is determined by their position in the sentence."
+      },
+      {
+        "question": "The sentence 'The dog barked, and the cat ran away' demonstrates what punctuation rule with coordinating conjunctions?",
+        "type": "mcq",
+        "options": [
+          "A) No comma needed",
+          "B) Comma before conjunction joining independent clauses",
+          "C) Comma before conjunction joining phrases",
+          "D) Comma between items in a list"
+        ],
+        "correct_answer": "B",
+        "explanation": "The sentence joins two independent clauses with a comma before the coordinating conjunction."
+      },
+      {
+        "question": "\u2018Either\u2026or\u2019 is an example of a:",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating conjunction",
+          "B) Correlative coordinating conjunction",
+          "C) Subordinating conjunction",
+          "D) Adverbial conjunction"
+        ],
+        "correct_answer": "B",
+        "explanation": "It's a pair of conjunctions working together."
+      },
+      {
+        "question": "Conjunctions can be used to improve the economy and variety of sentence structure.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "Effective use of conjunctions avoids overly simple sentences."
+      },
+      {
+        "question": "What is the primary function of a correlative coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) To connect independent clauses",
+          "B) To connect dependent clauses",
+          "C) To connect words, phrases, or clauses of equal rank in pairs",
+          "D) To introduce adverbial clauses"
+        ],
+        "correct_answer": "C",
+        "explanation": "They work in pairs to connect elements of equal grammatical weight."
+      },
+      {
+        "question": "In the sentence 'Not only did she study hard, but she also passed the exam', 'not only...but also' are examples of:",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating conjunctions",
+          "B) Correlative coordinating conjunctions",
+          "C) Subordinating conjunctions",
+          "D) Adverbial conjunctions"
+        ],
+        "correct_answer": "B",
+        "explanation": "These are paired conjunctions used to connect elements of equal grammatical rank."
+      },
+      {
+        "question": "Can a comma be omitted before a coordinating conjunction that joins two short independent clauses?",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "The text specifies this exception to the general rule."
+      },
+      {
+        "question": "The sentence 'He is tall, and he is handsome' illustrates what comma rule?",
+        "type": "mcq",
+        "options": [
+          "A) No comma is needed",
+          "B) Comma before the conjunction joining independent clauses",
+          "C) Comma between items in a list",
+          "D) Comma before a coordinating conjunction joining short independent clauses"
+        ],
+        "correct_answer": "B",
+        "explanation": "Two independent clauses are joined by a coordinating conjunction, so a comma is placed before it."
+      },
+      {
+        "question": "Conjunctions help to avoid writing only simple sentences.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "By connecting clauses and phrases, conjunctions create more complex and varied sentence structures."
+      },
+      {
+        "question": "Identify the coordinating conjunction in: 'She likes apples, but he prefers oranges'.",
+        "type": "mcq",
+        "options": [
+          "A) She",
+          "B) but",
+          "C) apples",
+          "D) oranges"
+        ],
+        "correct_answer": "B",
+        "explanation": "'But' is the word connecting the two independent clauses."
+      },
+      {
+        "question": "The phrase 'both...and' exemplifies which type of conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) Subordinating",
+          "B) Coordinating",
+          "C) Correlative Coordinating",
+          "D) Adverbial"
+        ],
+        "correct_answer": "C",
+        "explanation": "It's a paired conjunction used to connect items of equal grammatical rank."
+      }
+    ]
+  }
+}

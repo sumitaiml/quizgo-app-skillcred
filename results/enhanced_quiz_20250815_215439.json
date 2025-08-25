@@ -1,0 +1,90 @@
+{
+  "filename": "uploaded_20250815_215430.pdf",
+  "generated_at": "2025-08-15T21:54:39.835768",
+  "num_questions": 8,
+  "difficulty": "Hard",
+  "question_types": {
+    "mcq": 2,
+    "true_false": 2,
+    "fill_blank": 2,
+    "essay": 2
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following sentences correctly uses coordinating conjunctions and punctuation according to the provided guidelines? ",
+        "type": "mcq",
+        "options": [
+          "A)  Mary went to the store, and she bought milk but forgot bread.",
+          "B)  John studied hard; he passed the test.",
+          "C)  She sings beautifully and dances gracefully, however, she prefers writing.",
+          "D) The cat slept soundly, purred contentedly and dreamt of chasing mice."
+        ],
+        "correct_answer": "A",
+        "explanation": "Option A correctly uses a comma before the coordinating conjunction 'and' to join two independent clauses. Options B and C use incorrect punctuation. Option D requires a comma before the final 'and' when connecting three or more items in a list."
+      },
+      {
+        "question": "A sentence uses the correlative conjunction 'not only...but also'.  Is a comma ALWAYS required before 'but also'?",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "While a comma is often used before 'but also' for clarity, it's not grammatically mandatory, particularly if the phrase following 'but also' is short."
+      },
+      {
+        "question": "The _______ conjunctions connect clauses of unequal rank, while _______ conjunctions connect clauses of equal rank.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "subordinating, coordinating",
+        "explanation": "Subordinating conjunctions introduce dependent clauses, while coordinating conjunctions join independent clauses."
+      },
+      {
+        "question": "Explain the subtle differences in meaning and appropriate usage between the correlative conjunction pairs 'either...or' and 'neither...nor', providing original examples to illustrate the nuances.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should demonstrate understanding of the inclusive/exclusive nature of each pair and provide clear examples. It should also address potential ambiguities arising from their use and suggest ways to avoid them.  The examples should be original, not direct copies from the text.  The answer should highlight that 'either...or' presents choices, while 'neither...nor' indicates negation of both options.",
+        "explanation": "This question assesses comprehension of the nuanced meanings and proper application of correlative conjunctions beyond simple definition."
+      },
+      {
+        "question": "Identify the type of conjunction used in the sentence: \"Although it was raining, we went for a walk.\"",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating",
+          "B) Correlative Coordinating",
+          "C) Subordinating",
+          "D) Adverbial"
+        ],
+        "correct_answer": "C",
+        "explanation": "\"Although\" is a subordinating conjunction, connecting a dependent clause (\"Although it was raining\") to an independent clause (\"we went for a walk\")."
+      },
+      {
+        "question": "True or false:  The acronym FANBOYS is only applicable to correlative coordinating conjunctions.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "FANBOYS represents the seven coordinating conjunctions, not the correlative ones."
+      },
+      {
+        "question": "Construct a complex sentence using at least one coordinating conjunction and one subordinating conjunction.  The sentence should showcase proper punctuation and demonstrate a clear understanding of the relationships between the clauses.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "While it was sunny outside, I chose to stay indoors and read a book because I felt tired.",
+        "explanation": "This demonstrates understanding of complex sentence structure using coordinating (and) and subordinating (while, because) conjunctions.  Other valid answers are possible, but they must meet these criteria."
+      },
+      {
+        "question": "Discuss the importance of understanding conjunction usage in achieving clarity, precision, and stylistic variation in writing.  Provide examples of how the misuse of conjunctions can lead to ambiguity or grammatical errors.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should articulate the role of conjunctions in creating logical connections between ideas and in avoiding run-on sentences or sentence fragments.  It must also provide clear examples of how incorrect conjunction usage can lead to confusion, grammatical errors, and a lack of stylistic finesse. The answer should go beyond mere description to demonstrate critical thinking about stylistic choices and their impact on effective communication. Examples should show the negative consequences of misusing various types of conjunctions.",
+        "explanation": "This question evaluates a deeper understanding of the functional and stylistic roles of conjunctions in writing."
+      }
+    ]
+  }
+}

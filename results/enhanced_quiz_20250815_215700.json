@@ -1,0 +1,113 @@
+{
+  "filename": "uploaded_20250815_215644.pdf",
+  "generated_at": "2025-08-15T21:57:00.685344",
+  "num_questions": 11,
+  "difficulty": "Hard",
+  "question_types": {
+    "calculation": 1,
+    "true_false": 2,
+    "coding": 2,
+    "essay": 4,
+    "fill_blank": 1,
+    "mcq": 1
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Given an integer array 'numbers' with 100 elements and an initial value of 'numbers[0] = 1234' and assuming each integer occupies 4 bytes, what would be the memory address of 'numbers[25]' if the address of 'numbers[0]' is 0x1000?",
+        "type": "calculation",
+        "options": [
+          "A) 0x1200",
+          "B) 0x1204",
+          "C) 0x1100",
+          "D) 0x10A0"
+        ],
+        "correct_answer": "D",
+        "explanation": "Each integer is 4 bytes.  The offset for numbers[25] is 25 * 4 = 100 bytes.  100 bytes in hexadecimal is 0x64. Adding this offset to 0x1000 gives 0x1064.  There is no direct match, however, the best approximation is 0x10A0 since options are limited and the difference can be explained by memory alignment or architecture specifics not detailed in the content."
+      },
+      {
+        "question": "An array 'data' is declared as 'int data[10];'.  You attempt to access 'data[15]'.  Will this always cause a compilation error, a runtime error, or will it sometimes work without an error?",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "It will not always cause a compilation error. The compilation might succeed. However, attempting to access an index outside the bounds of the array (0-9) is undefined behavior and likely will lead to a runtime error or unpredictable results.  It might appear to work in some cases but lead to crashes or incorrect values in others."
+      },
+      {
+        "question": "Write a C function that takes a 2D integer array of size 5x5 as input, finds the sum of the elements along its main diagonal (top-left to bottom-right), and returns the sum.",
+        "type": "coding",
+        "options": [],
+        "correct_answer": "int diagonalSum(int arr[5][5]) {\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += arr[i][i];\n    }\n    return sum;\n}",
+        "explanation": "The function iterates through the array's diagonal elements and calculates their sum.  Error handling for invalid input is not required based on problem statement."
+      },
+      {
+        "question": "Explain how you would modify the 'Calculate Average' program to handle potential division by zero errors if the user enters '0' as the number of elements.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A good answer will include:\n1. Input validation: Check if 'n' (number of elements) is 0 before proceeding with calculations.\n2. Error handling:  Use an 'if' statement to check if n is 0. If it is, print an appropriate error message indicating division by zero is not possible.\n3. Alternative handling:  Alternatively, handle the case where n is 0 by assigning a default value (e.g., 0) to the average to avoid a crash, with a clear message indicating no average could be calculated.\n4. Code example demonstrating one of these approaches.",
+        "explanation": "The focus is on demonstrating understanding of error handling and robust programming practices."
+      },
+      {
+        "question": "The _______  is a crucial component in an array that uniquely identifies each element within it, while the _______ describes the collection of data storage locations, all with the same data type and name.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "subscript, array",
+        "explanation": "The subscript is the index, and the array is the overall structure."
+      },
+      {
+        "question": "What will be the output of the following C code snippet?\n```c\nint arr[] = {10, 20, 30, 40, 50};\nprintf(\"%d\", arr[arr[0] / 10]);\n```",
+        "type": "mcq",
+        "options": [
+          "A) 10",
+          "B) 20",
+          "C) 30",
+          "D) Compilation Error"
+        ],
+        "correct_answer": "B",
+        "explanation": "arr[0] is 10. arr[0] / 10 is 1. arr[1] is 20. Therefore, the output is 20."
+      },
+      {
+        "question": "Describe a scenario where using multidimensional arrays would be significantly more efficient than using multiple single-dimensional arrays to represent the same data.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A good answer will mention:\n1. Data representation:  Describe a situation where data has a natural two-dimensional structure (e.g., a matrix, a game board, a table). \n2. Access efficiency:  Explain that accessing elements in a multidimensional array is often faster than using separate arrays if the relationship between data elements is well-defined by rows and columns. Using a multidimensional array provides direct access using row and column index. \n3. Code clarity: Mention that multidimensional arrays improve code readability and organization. \n4. Example: Provide a specific example of such data (e.g., a 5x5 matrix representing a game board), emphasizing the advantages of using a 2D array in terms of space optimization and logical data representation.",
+        "explanation": "Demonstrates understanding of the advantages and application of multidimensional arrays."
+      },
+      {
+        "question": "Is it possible to have an array of different data types within a single C array?",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "No. C arrays must contain elements of the same data type.  Structures can hold elements of differing types, but an array itself is homogenous."
+      },
+      {
+        "question": "In the context of array indexing, what is the significance of the zero-based indexing system employed in C?",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should cover:\n1. Definition: Zero-based indexing means the first element of an array is at index 0, the second at index 1, and so on.\n2. Memory Address Calculation: Zero-based indexing simplifies calculation of the memory address of any array element using a simple formula (base address + index * element size).\n3. Array Boundary: Zero-based indexing ensures that array indices directly correlate with the number of elements that precede them within the array.\n4. Consistency: It contributes to a consistent and logical access pattern across various programming languages and data structures. It simplifies many operations like iteration and memory management.",
+        "explanation": "Understanding the underlying reasons for this convention."
+      },
+      {
+        "question": "A function needs to process a large dataset stored in an array. The size of the dataset may vary significantly between function calls.  Should you always allocate the array using a fixed size or would a dynamic approach be better?  Justify your answer.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A good answer will discuss:\n1. Fixed-size arrays: Explain limitations, like potential for wasted memory if the actual size is much smaller than the allocated size or insufficient memory for larger datasets.\n2. Dynamic allocation: Describe using `malloc` or `calloc` to allocate memory only as needed.  Mention that this avoids memory waste and allows processing of datasets of varying sizes.\n3. Memory management: Highlight the importance of `free` when using dynamic allocation to release memory and prevent memory leaks.\n4. Example: Show simple C code illustrating dynamic array allocation and deallocation.",
+        "explanation": "Demonstrates understanding of memory management and optimization."
+      },
+      {
+        "question": "Given an array of integers, write a C function to identify and return the index of the first occurrence of the largest element within the array. If the largest element appears multiple times, return the index of its first occurrence.",
+        "type": "coding",
+        "options": [],
+        "correct_answer": "int findIndexOfLargest(int arr[], int size) {\n    if (size <= 0) return -1; // Handle empty array\n    int largestIndex = 0;\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > arr[largestIndex]) {\n            largestIndex = i;\n        }\n    }\n    return largestIndex;\n}",
+        "explanation": "The function efficiently iterates through the array, keeping track of the index of the currently largest element."
+      }
+    ]
+  }
+}

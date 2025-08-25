@@ -1,0 +1,114 @@
+{
+  "battle_document": "battle_document_20250825_150500.pdf",
+  "deployment_timestamp": "2025-08-25T15:05:08.155980",
+  "battle_parameters": {
+    "num_questions": 8,
+    "difficulty_protocol": "Medium",
+    "battle_mode": "mcq",
+    "question_formation": {
+      "mcq": 8
+    }
+  },
+  "battle_system": "IQBattle_v2.0_AI_Enhanced",
+  "battle_commander": "Google_AI_Gemini_1.5_Flash",
+  "battle_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) and",
+          "B) but",
+          "C) because",
+          "D) or"
+        ],
+        "correct_answer": "C",
+        "explanation": "Because is a subordinating conjunction, not a coordinating conjunction (FANBOYS)."
+      },
+      {
+        "question": "What punctuation is typically used before a coordinating conjunction joining two independent clauses?",
+        "type": "mcq",
+        "options": [
+          "A) Semicolon",
+          "B) Colon",
+          "C) Comma",
+          "D) No punctuation"
+        ],
+        "correct_answer": "C",
+        "explanation": "A comma is generally used before a coordinating conjunction joining two independent clauses.  Exceptions may be made with very short clauses."
+      },
+      {
+        "question": "Which pair represents correlative coordinating conjunctions?",
+        "type": "mcq",
+        "options": [
+          "A)  and, but",
+          "B)  if, then",
+          "C)  both, and",
+          "D)  since, because"
+        ],
+        "correct_answer": "C",
+        "explanation": "Both...and are correlative coordinating conjunctions, appearing in pairs to connect elements of equal rank."
+      },
+      {
+        "question": "The sentence 'Mary went to the Writing Center, and John went home' exemplifies what punctuation rule?",
+        "type": "mcq",
+        "options": [
+          "A) Comma use with short independent clauses",
+          "B) Comma use before coordinating conjunctions joining independent clauses",
+          "C) No comma needed between independent clauses",
+          "D) Comma splice"
+        ],
+        "correct_answer": "B",
+        "explanation": "This demonstrates the correct use of a comma before a coordinating conjunction linking two independent clauses."
+      },
+      {
+        "question": "In the sentence 'Neither Mary nor John...', which type of conjunction is 'neither...nor'?",
+        "type": "mcq",
+        "options": [
+          "A) Subordinating conjunction",
+          "B) Coordinating conjunction",
+          "C) Correlative coordinating conjunction",
+          "D) Adverbial conjunction"
+        ],
+        "correct_answer": "C",
+        "explanation": "'Neither...nor' is a pair of correlative coordinating conjunctions."
+      },
+      {
+        "question": "Subordinating conjunctions primarily connect:",
+        "type": "mcq",
+        "options": [
+          "A) Independent clauses of equal rank",
+          "B) Dependent clauses to independent clauses",
+          "C) Only words or phrases",
+          "D) Independent clauses of unequal rank"
+        ],
+        "correct_answer": "B",
+        "explanation": "Subordinating conjunctions join a dependent clause to an independent clause."
+      },
+      {
+        "question": "What is the acronym used to remember the coordinating conjunctions?",
+        "type": "mcq",
+        "options": [
+          "A) SCABS",
+          "B) FANBOYS",
+          "C) COWBOY",
+          "D) SUBCON"
+        ],
+        "correct_answer": "B",
+        "explanation": "FANBOYS is a mnemonic device to remember the coordinating conjunctions: For, And, Nor, But, Or, Yet, So."
+      },
+      {
+        "question": "When joining three or more words, phrases, or subordinate clauses with a coordinating conjunction, where are commas placed?",
+        "type": "mcq",
+        "options": [
+          "A) Only before the conjunction",
+          "B) Only after the conjunction",
+          "C) Between each item in the series; optional before conjunction",
+          "D) Commas are not required"
+        ],
+        "correct_answer": "C",
+        "explanation": "Commas separate items in a series; the comma before the conjunction is optional."
+      }
+    ]
+  }
+}

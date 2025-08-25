@@ -1,0 +1,90 @@
+{
+  "filename": "uploaded_20250816_003942.pdf",
+  "generated_at": "2025-08-16T00:39:50.587188",
+  "num_questions": 8,
+  "difficulty": "Medium",
+  "question_types": {
+    "mcq": 2,
+    "true_false": 2,
+    "fill_blank": 2,
+    "essay": 2
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) and",
+          "B) but",
+          "C) because",
+          "D) or"
+        ],
+        "correct_answer": "C",
+        "explanation": "Because is a subordinating conjunction, not a coordinating conjunction."
+      },
+      {
+        "question": "A comma is always required before a coordinating conjunction when joining two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "A comma is generally required, but can be omitted if the independent clauses are very short."
+      },
+      {
+        "question": "The acronym FANBOYS is used to remember which type of conjunctions?",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "coordinating",
+        "explanation": "FANBOYS is a mnemonic device for remembering the seven coordinating conjunctions."
+      },
+      {
+        "question": "Explain the difference between coordinating and subordinating conjunctions, providing at least two examples of each and illustrating their use in sentences.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should define coordinating and subordinating conjunctions.  It should provide at least two examples of each type (e.g., coordinating: and, but; subordinating: because, although).  The examples should be used correctly in complete sentences demonstrating the functional differences between the two types of conjunctions.  The answer should also correctly identify the types of elements (words, phrases, clauses) that each conjunction type connects.",
+        "explanation": "The essay should demonstrate a clear understanding of the grammatical function and usage of both coordinating and subordinating conjunctions."
+      },
+      {
+        "question": "Which of the following is an example of correlative coordinating conjunctions?",
+        "type": "mcq",
+        "options": [
+          "A) although",
+          "B) because",
+          "C) either...or",
+          "D) while"
+        ],
+        "correct_answer": "C",
+        "explanation": "Either...or is a pair of correlative coordinating conjunctions."
+      },
+      {
+        "question": "When joining three or more words with a coordinating conjunction, a comma is always necessary before the conjunction.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "A comma is used between items in a series, but before the final conjunction it is optional."
+      },
+      {
+        "question": "The _______ conjunction connects a dependent clause to an independent clause, showing the relationship between the two.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "subordinating",
+        "explanation": "Subordinating conjunctions introduce dependent clauses and show their relationship to independent clauses."
+      },
+      {
+        "question": "Describe a situation where you would use correlative coordinating conjunctions to improve sentence structure and clarity.  Give an example sentence.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "The essay should describe a scenario where using correlative conjunctions improves sentence structure (e.g., avoiding repetition, creating parallel structure).  The example sentence should demonstrate the correct usage of correlative conjunctions (e.g., both...and, neither...nor, either...or).  The answer should correctly identify the correlative conjunctions used and explain why their use improves the sentence.",
+        "explanation": "The essay should demonstrate understanding of the purpose and effective use of correlative coordinating conjunctions."
+      }
+    ]
+  }
+}

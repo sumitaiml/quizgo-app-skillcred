@@ -1,0 +1,114 @@
+{
+  "battle_document": "battle_document_20250821_153338.pdf",
+  "deployment_timestamp": "2025-08-21T15:33:46.819245",
+  "battle_parameters": {
+    "num_questions": 8,
+    "difficulty_protocol": "Medium",
+    "battle_mode": "mcq",
+    "question_formation": {
+      "mcq": 8
+    }
+  },
+  "battle_system": "IQBattle_v2.0_AI_Enhanced",
+  "battle_commander": "Google_AI_Gemini_1.5_Flash",
+  "battle_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) but",
+          "B) or",
+          "C) since",
+          "D) yet"
+        ],
+        "correct_answer": "C",
+        "explanation": "Since is a subordinating conjunction, connecting a dependent clause to an independent clause.  FANBOYS (For, And, Nor, But, Or, Yet, So) are coordinating conjunctions."
+      },
+      {
+        "question": "What punctuation is typically used before a coordinating conjunction joining two independent clauses?",
+        "type": "mcq",
+        "options": [
+          "A) Semicolon",
+          "B) Colon",
+          "C) Comma",
+          "D) No punctuation needed"
+        ],
+        "correct_answer": "C",
+        "explanation": "A comma is generally used before a coordinating conjunction when joining two independent clauses.  Exceptions apply to very short clauses."
+      },
+      {
+        "question": "In the sentence 'Both Mary and John went to the Writing Center,' what type of conjunction is 'Both...and'?",
+        "type": "mcq",
+        "options": [
+          "A) Subordinating conjunction",
+          "B) Coordinating conjunction",
+          "C) Correlative coordinating conjunction",
+          "D) Adverbial conjunction"
+        ],
+        "correct_answer": "C",
+        "explanation": "'Both...and' is a pair of words that functions as a correlative coordinating conjunction, connecting equal parts of a sentence."
+      },
+      {
+        "question": "Which sentence correctly uses a coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) The sun was shining, and it was hot.",
+          "B) I went to the store; but I forgot my list.",
+          "C) He ran fast although he was tired.",
+          "D) She studied hard, so she passed the test; however, she was still nervous."
+        ],
+        "correct_answer": "A",
+        "explanation": "Options B, C and D use incorrect punctuation or the wrong type of conjunction. Option A correctly uses 'and' to join two independent clauses with a comma."
+      },
+      {
+        "question": "What is the role of a subordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) To connect independent clauses of equal rank",
+          "B) To connect words or phrases of equal rank",
+          "C) To connect a dependent clause to an independent clause",
+          "D) To join words, phrases, or clauses in a series"
+        ],
+        "correct_answer": "C",
+        "explanation": "Subordinating conjunctions introduce dependent clauses and show their relationship to the independent clause."
+      },
+      {
+        "question": "Identify the correlative conjunction in: 'Not only did she study, but she also practiced.'",
+        "type": "mcq",
+        "options": [
+          "A) only...but",
+          "B) Not only...but also",
+          "C) did...she",
+          "D) study...practiced"
+        ],
+        "correct_answer": "B",
+        "explanation": "'Not only...but also' is a correlative coordinating conjunction."
+      },
+      {
+        "question": "Which conjunction pair is NOT a common correlative coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) both...and",
+          "B) either...or",
+          "C) before...after",
+          "D) neither...nor"
+        ],
+        "correct_answer": "C",
+        "explanation": "While 'before' and 'after' can be conjunctions, they do not function as a correlative pair as defined in the document."
+      },
+      {
+        "question": "According to the text, when joining three or more words, phrases or clauses, a comma should be used between the items in the series. Should a comma also be placed before the final coordinating conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) Always",
+          "B) Never",
+          "C) It is optional",
+          "D) Only if the final item is a clause"
+        ],
+        "correct_answer": "C",
+        "explanation": "The text explicitly states that a comma may or may not be used before the coordinating conjunction in this scenario (Oxford comma)."
+      }
+    ]
+  }
+}

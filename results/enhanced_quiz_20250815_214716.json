@@ -1,0 +1,90 @@
+{
+  "filename": "uploaded_20250815_214707.pdf",
+  "generated_at": "2025-08-15T21:47:16.866231",
+  "num_questions": 8,
+  "difficulty": "Hard",
+  "question_types": {
+    "mcq": 2,
+    "true_false": 2,
+    "fill_blank": 2,
+    "essay": 2
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following sentences correctly uses coordinating conjunctions and punctuation?  A)  The dog barked loudly, and the cat hissed ferociously. B) The sun shone brightly yet the clouds remained. C)  He studied hard, he passed the test. D) She sang beautifully but danced awkwardly and played the piano.",
+        "type": "mcq",
+        "options": [
+          "A)",
+          "B)",
+          "C)",
+          "D)"
+        ],
+        "correct_answer": "A",
+        "explanation": "A correctly uses a comma before the coordinating conjunction 'and' to join two independent clauses. B is correct in its use of the conjunction but could improve by adding a comma. C lacks a conjunction. D uses a comma before the 'and' and 'but' correctly, but should have a comma after 'awkwardly'."
+      },
+      {
+        "question": "Subordinating conjunctions always connect two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Subordinating conjunctions connect a dependent clause to an independent clause, not two independent clauses.  Coordinating conjunctions connect independent clauses."
+      },
+      {
+        "question": "The _______ conjunctions 'not only...but also' are an example of _______ coordinating conjunctions.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "correlative, correlative",
+        "explanation": "The question tests the knowledge of correlative conjunctions and their classification."
+      },
+      {
+        "question": "Explain the nuanced differences in punctuation when using coordinating conjunctions to link words, phrases, and independent clauses, providing examples to illustrate your points.  Discuss situations where comma usage is optional.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should include: \n1. Correct punctuation when joining two independent clauses (comma before conjunction).\n2. Absence of commas when joining words or phrases.\n3. Comma usage between items in a series (optional before conjunction).\n4. Examples illustrating each scenario.\n5. Explanation of the exceptions for short independent clauses where a comma may be omitted.",
+        "explanation": "The essay requires a deep understanding of comma rules with coordinating conjunctions, demonstrating mastery of grammatical nuances."
+      },
+      {
+        "question": "Which of the following pairs is NOT an example of correlative coordinating conjunctions as presented in the text? A) both...and B)  as...as C)  therefore...because D)  neither...nor",
+        "type": "mcq",
+        "options": [
+          "A)",
+          "B)",
+          "C)",
+          "D)"
+        ],
+        "correct_answer": "C",
+        "explanation": "While 'therefore' and 'because' are both conjunctions, they are not correlative conjunctions; they don't function in pairs."
+      },
+      {
+        "question": "The acronym FANBOYS is a useful mnemonic device for remembering which type of conjunction?",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "coordinating",
+        "explanation": "This tests direct recall of information about FANBOYS and their function."
+      },
+      {
+        "question": "Construct two original sentences, one using a subordinating conjunction to show cause and effect, and another using correlative conjunctions to show contrast.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "The answer should include:\n1. A correctly punctuated sentence using a subordinating conjunction to establish a cause-and-effect relationship (e.g., 'Because it rained, the game was canceled.').\n2. A correctly punctuated sentence utilizing correlative conjunctions to highlight a contrast (e.g., 'Not only was the food delicious, but also the service was exceptional.').",
+        "explanation": "This evaluates the student's ability to apply their understanding of conjunction types and punctuation in original sentence construction."
+      },
+      {
+        "question": "Can a single sentence contain both a coordinating and a subordinating conjunction? Explain with an example.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "A correct answer would explain that a sentence can contain both, providing an example like, \u201cAlthough it was raining (subordinating), we went to the park, and we played soccer (coordinating).\u201d"
+      }
+    ]
+  }
+}

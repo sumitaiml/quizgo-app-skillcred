@@ -1,0 +1,66 @@
+{
+  "filename": "uploaded_20250815_183304.pdf",
+  "generated_at": "2025-08-15T18:33:11.117217",
+  "num_questions": 5,
+  "difficulty": "Medium",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following sentences correctly uses a coordinating conjunction to join two independent clauses?",
+        "type": "mcq",
+        "options": [
+          "A) The sun was shining, and the birds were singing.",
+          "B) The sun was shining the birds were singing.",
+          "C) The sun was shining; the birds were singing.",
+          "D) The sun was shining, but the birds were singing and the dog barked."
+        ],
+        "correct_answer": "A",
+        "explanation": "Option A correctly uses the coordinating conjunction 'and' to join two independent clauses, with a comma preceding the conjunction. Options B and C lack proper punctuation. Option D, while grammatically correct, presents an overly complicated example."
+      },
+      {
+        "question": "When joining three or more words with a coordinating conjunction, a comma should always be placed before the conjunction.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "While a comma is typically used between items in a series, it's optional before the final coordinating conjunction.  The provided text illustrates both possibilities."
+      },
+      {
+        "question": "The acronym FANBOYS is used to remember which type of conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) Subordinating Conjunctions",
+          "B) Correlative Conjunctions",
+          "C) Coordinating Conjunctions",
+          "D) Adverbial Conjunctions"
+        ],
+        "correct_answer": "C",
+        "explanation": "FANBOYS is a mnemonic device to remember the seven coordinating conjunctions: For, And, Nor, But, Or, Yet, So."
+      },
+      {
+        "question": "Identify the correlative conjunction in the following sentence:  'Not only did she study hard, but she also sought help from the Writing Center.'",
+        "type": "mcq",
+        "options": [
+          "A) only...but",
+          "B) Not only...but also",
+          "C) did...sought",
+          "D) hard...help"
+        ],
+        "correct_answer": "B",
+        "explanation": "'Not only...but also' is a pair of correlative conjunctions working together to connect two clauses.  The other options are incorrect."
+      },
+      {
+        "question": "The sentence 'Mary wrote her essay, and she submitted it on time' requires a comma before the conjunction 'and'.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "The sentence joins two independent clauses; therefore, a comma is needed before the coordinating conjunction 'and'."
+      }
+    ]
+  }
+}

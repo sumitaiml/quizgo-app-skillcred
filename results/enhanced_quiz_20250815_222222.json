@@ -1,0 +1,90 @@
+{
+  "filename": "uploaded_20250815_222213.pdf",
+  "generated_at": "2025-08-15T22:22:22.254481",
+  "num_questions": 8,
+  "difficulty": "Medium",
+  "question_types": {
+    "mcq": 2,
+    "true_false": 2,
+    "fill_blank": 2,
+    "essay": 2
+  },
+  "enhancement": "multiple_question_types",
+  "version": "2.0",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following is NOT a coordinating conjunction according to the FANBOYS acronym?",
+        "type": "mcq",
+        "options": [
+          "A) for",
+          "B) and",
+          "C) then",
+          "D) yet"
+        ],
+        "correct_answer": "C",
+        "explanation": "The acronym FANBOYS represents 'for, and, nor, but, or, yet, so'.  'Then' is not a coordinating conjunction."
+      },
+      {
+        "question": "A comma is always required before a coordinating conjunction when joining two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "While generally true, the content states that commas might be omitted if the independent clauses are very short."
+      },
+      {
+        "question": "The _______ conjunctions connect dependent clauses to independent clauses, illustrating the relationship between them.",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "subordinating",
+        "explanation": "The text explicitly defines subordinating conjunctions as those that connect dependent and independent clauses."
+      },
+      {
+        "question": "Explain the difference between coordinating and subordinating conjunctions, providing at least one example of each and describing their function in a sentence.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should define coordinating conjunctions (connecting elements of equal grammatical rank) and subordinating conjunctions (connecting dependent and independent clauses).  It should provide clear examples like 'Mary and John went to the store' (coordinating, 'and' joins two independent clauses) and 'Because it was raining, they stayed inside' (subordinating, 'because' introduces a dependent clause). The explanation should also detail how each type affects sentence structure and meaning.",
+        "explanation": "The essay should demonstrate a clear understanding of the grammatical function and the distinction between the two types of conjunctions, supported by correctly used examples."
+      },
+      {
+        "question": "Identify the correlative coordinating conjunction in the following sentence:  'Not only did she study hard, but she also sought help from the Writing Center.'",
+        "type": "mcq",
+        "options": [
+          "A) only...but",
+          "B) not only...but also",
+          "C) did...she",
+          "D) hard...sought"
+        ],
+        "correct_answer": "B",
+        "explanation": "'Not only...but also' is a pair of correlative coordinating conjunctions."
+      },
+      {
+        "question": "When using a comma with a coordinating conjunction to join more than two words or phrases, is a comma always necessary before the final conjunction?",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "The text states that a comma may or may not be used before the coordinating conjunction when joining more than two items."
+      },
+      {
+        "question": "The sentence '_______ you practice, _______ your writing will improve' can be completed with which correlative conjunction pair?",
+        "type": "fill_blank",
+        "options": [],
+        "correct_answer": "The more, the more",
+        "explanation": "This is an example provided in the text demonstrating correlative conjunctions."
+      },
+      {
+        "question": "Discuss the punctuation rules when using coordinating conjunctions to join different grammatical units (words, phrases, and clauses). Provide examples to illustrate your points.",
+        "type": "essay",
+        "options": [],
+        "correct_answer": "A complete answer should cover the punctuation rules for coordinating conjunctions:  no comma when joining two words or phrases; a comma before the conjunction when joining two independent clauses (unless very short); commas between items in a series of three or more, with an optional comma before the conjunction.  Examples for each case should be provided, demonstrating correct punctuation.  The answer should explicitly address the different grammatical units being joined.",
+        "explanation": "The essay should demonstrate a thorough understanding of the provided punctuation rules concerning coordinating conjunctions with clear examples to support their explanation. "
+      }
+    ]
+  }
+}

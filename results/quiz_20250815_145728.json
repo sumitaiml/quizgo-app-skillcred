@@ -1,0 +1,66 @@
+{
+  "filename": "uploaded_20250815_145721.pdf",
+  "generated_at": "2025-08-15T14:57:28.304374",
+  "num_questions": 5,
+  "difficulty": "Medium",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "If an integer array 'numbers' is declared with a size of 10 and the address of numbers[0] is 1000 (assuming each integer occupies 4 bytes), what will be the address of numbers[3]?",
+        "type": "mcq",
+        "options": [
+          "A) 1012",
+          "B) 1003",
+          "C) 1004",
+          "D) 1016"
+        ],
+        "correct_answer": "A",
+        "explanation": "Each integer takes 4 bytes.  Therefore, numbers[3] will be located at 1000 + (3 * 4) = 1012."
+      },
+      {
+        "question": "In C, array indices always start from 0.  Therefore, accessing an element at index -1 is valid.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Array indices in C begin at 0 and end at size-1. Attempting to access an element outside this range leads to undefined behavior."
+      },
+      {
+        "question": "A program needs to store the daily temperatures for a week.  Which type of array would be most suitable?",
+        "type": "mcq",
+        "options": [
+          "A) Two-dimensional array",
+          "B) Single-dimensional array",
+          "C) Three-dimensional array",
+          "D) None of the above"
+        ],
+        "correct_answer": "B",
+        "explanation": "A single-dimensional array can efficiently store a sequence of seven daily temperatures."
+      },
+      {
+        "question": "Consider the C code snippet: `int arr[5] = {1, 2, 3, 4, 5}; int x = arr[5];`. What will happen when this code is executed?",
+        "type": "mcq",
+        "options": [
+          "A) x will be assigned the value 5.",
+          "B) x will be assigned the value 0.",
+          "C) A compilation error will occur.",
+          "D) The program will crash or produce unpredictable results."
+        ],
+        "correct_answer": "D",
+        "explanation": "Accessing `arr[5]` attempts to access an element outside the bounds of the array (valid indices are 0-4), leading to undefined behavior, which could manifest as a crash or unexpected values."
+      },
+      {
+        "question": "The `for` loop in the provided 'Calculate Average' example iterates through the 'marks' array to calculate the sum. The loop condition ensures that all elements are processed.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "The loop `for(i=0; i<n; ++i)` iterates from i=0 up to (but not including) n, correctly processing all n elements entered by the user."
+      }
+    ]
+  }
+}

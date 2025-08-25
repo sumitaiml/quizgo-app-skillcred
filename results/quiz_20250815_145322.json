@@ -1,0 +1,66 @@
+{
+  "filename": "uploaded_20250815_145315.pdf",
+  "generated_at": "2025-08-15T14:53:22.188922",
+  "num_questions": 5,
+  "difficulty": "Medium",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "If an integer array 'numbers' has a size of 10 and the address of numbers[0] is 1000 (in decimal), and each integer occupies 4 bytes, what is the address of numbers[5]?",
+        "type": "mcq",
+        "options": [
+          "A) 1020",
+          "B) 1010",
+          "C) 1000",
+          "D) 1016"
+        ],
+        "correct_answer": "D",
+        "explanation": "Each integer takes 4 bytes, so numbers[5] will be at 1000 + (5 * 4) = 1020."
+      },
+      {
+        "question": "In a single-dimensional array, accessing an element beyond the declared size leads to undefined behavior.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "Accessing elements outside the array bounds leads to unpredictable results, including crashes or incorrect output."
+      },
+      {
+        "question": "What will be the output of the provided 'Calculate Average' program if the user enters 3, 10, 20, 30 as input?",
+        "type": "mcq",
+        "options": [
+          "A) 15",
+          "B) 20",
+          "C) 17.5",
+          "D) 60"
+        ],
+        "correct_answer": "A",
+        "explanation": "The sum of the numbers (10 + 20 + 30) is 60.  The average is 60/3 = 20. The question states that 3 numbers are to be entered."
+      },
+      {
+        "question": "Consider the array declaration: `int scores[5] = {80, 90, 70, 100, 85};`.  What is the value of scores[2]?",
+        "type": "mcq",
+        "options": [
+          "A) 80",
+          "B) 90",
+          "C) 70",
+          "D) 100"
+        ],
+        "correct_answer": "C",
+        "explanation": "Array indices start from 0. Therefore, scores[2] refers to the third element in the array, which is 70."
+      },
+      {
+        "question": "An array in C is a homogenous data structure.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "A C array can only hold elements of the same data type.  It cannot store a mix of integers and characters, for example."
+      }
+    ]
+  }
+}

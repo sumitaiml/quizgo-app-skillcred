@@ -1,0 +1,66 @@
+{
+  "filename": "uploaded_20250815_212127.pdf",
+  "generated_at": "2025-08-15T21:21:38.456202",
+  "num_questions": 5,
+  "difficulty": "Medium",
+  "quiz_data": {
+    "questions": [
+      {
+        "question": "Which of the following sentences correctly uses a coordinating conjunction to join two independent clauses?",
+        "type": "mcq",
+        "options": [
+          "A) The sun was shining, and the birds were singing.",
+          "B) The cat sat on the mat it was sleepy.",
+          "C) He went to the store, buying milk.",
+          "D)  She studied hard, she passed the exam."
+        ],
+        "correct_answer": "A",
+        "explanation": "Option A correctly uses 'and' to join two independent clauses.  Options B, C, and D contain grammatical errors or incomplete clauses."
+      },
+      {
+        "question": "A comma is always required before a coordinating conjunction when joining two independent clauses.",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "While a comma is usually used, it can be omitted if the independent clauses are very short."
+      },
+      {
+        "question": "The sentence 'Neither the dog nor the cat ate their food' uses what type of conjunction?",
+        "type": "mcq",
+        "options": [
+          "A) Coordinating conjunction",
+          "B) Subordinating conjunction",
+          "C) Correlative coordinating conjunction",
+          "D) Adverbial conjunction"
+        ],
+        "correct_answer": "C",
+        "explanation": "'Neither...nor' is a pair of correlative coordinating conjunctions."
+      },
+      {
+        "question": "In the sentence 'The student wrote quickly, but inaccurately,' what grammatical function does 'but' serve?",
+        "type": "mcq",
+        "options": [
+          "A) Connects two verbs",
+          "B) Connects two nouns",
+          "C) Connects two independent clauses",
+          "D) Connects two dependent clauses"
+        ],
+        "correct_answer": "C",
+        "explanation": "'But' joins two independent clauses, each containing a subject and verb."
+      },
+      {
+        "question": "The acronym FANBOYS is a helpful mnemonic device for remembering which type of conjunction?",
+        "type": "true_false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "FANBOYS stands for For, And, Nor, But, Or, Yet, So \u2013 all coordinating conjunctions."
+      }
+    ]
+  }
+}
