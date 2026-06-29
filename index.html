@@ -3271,10 +3271,10 @@
 
                 const checkConnection = async () => {
                     const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 2000); // 2s timeout for fast check
+                    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout to accommodate warm response latency
 
                     try {
-                        const res = await fetch('/api/battle-health', { signal: controller.signal });
+                        const res = await fetch('/api/battle-health?t=' + Date.now(), { signal: controller.signal });
                         clearTimeout(timeoutId);
                         if (res.ok) {
                             setStatus('active', 'Backend Active');
