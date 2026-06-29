@@ -1493,10 +1493,10 @@
         </div>
 
         <div class="nav-controls">
-            <div id="backendStatusPill" class="status-pill status-checking" title="Render Backend Connection Status">
+            <a id="backendStatusPill" href="https://quizgo-backend.onrender.com/api/battle-health" target="_blank" class="status-pill status-checking" title="Check Render Backend Health Status" style="text-decoration: none;">
                 <span class="status-dot"></span>
                 <span id="backendStatusText" class="status-text">Backend checking...</span>
-            </div>
+            </a>
             <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
                 <i class="fa-solid fa-circle-half-stroke"></i> <span id="themeToggleText">Light</span>
             </button>
@@ -1888,7 +1888,7 @@
                 </div>
                 <h3 id="backendModalTitle" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">BACKEND CONNECTING</h3>
                 <p id="backendModalDesc" style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace;">
-                    Synchronizing cloud environment state...
+                    Synchronizing cloud environment state... You can check the <a href="https://quizgo-backend.onrender.com/api/battle-health" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">Render Health Link</a>.
                 </p>
                 <div class="modal-actions" style="display: flex; gap: 0.75rem; justify-content: center; width: 100%;">
                     <button class="btn-cta" id="backendWaitBtn" style="flex: 1.2; font-size: 0.75rem; height: 38px; line-height: 38px; padding: 0 1rem;" disabled>Waking up...</button>
@@ -3250,7 +3250,7 @@
                             backendSpinner.innerHTML = '<i class="fas fa-check-circle fa-3x" style="color: var(--accent-green); transition: all 0.3s ease;"></i>';
                         }
                         if (backendModalTitle) backendModalTitle.textContent = 'CONNECTION SECURED';
-                        if (backendModalDesc) backendModalDesc.textContent = 'Backend is fully awake and synchronized!';
+                        if (backendModalDesc) backendModalDesc.innerHTML = 'Backend is fully awake and synchronized! Check the <a href="https://quizgo-backend.onrender.com/api/battle-health" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">Render Health Link</a>.';
                         if (backendWaitBtn) {
                             backendWaitBtn.textContent = 'Ready!';
                             backendWaitBtn.style.background = 'var(--accent-green)';
@@ -3296,7 +3296,7 @@
 
                     if (backendModalTitle) backendModalTitle.textContent = 'BACKEND ACTIVATING';
                     if (backendModalDesc) {
-                        backendModalDesc.textContent = `The server is hosted on Render's Free tier and is currently waking up (elapsed: ${retries * 3}s). Please wait for database connection synchronization.`;
+                        backendModalDesc.innerHTML = `The server is hosted on Render's Free tier and is currently waking up (elapsed: ${retries * 3}s).<br>You can check the <a href="https://quizgo-backend.onrender.com/api/battle-health" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">Render Health Link</a> directly.`;
                     }
                     if (backendWaitBtn) {
                         backendWaitBtn.textContent = `Waking up... (${retries * 3}s)`;
@@ -3305,7 +3305,7 @@
                     if (retries >= maxRetries) {
                         setStatus('checking', 'Backend Sleeping');
                         if (backendModalTitle) backendModalTitle.textContent = 'BACKEND SLEEPING';
-                        if (backendModalDesc) backendModalDesc.textContent = 'The backend is taking longer than usual to wake up. You can wait or proceed anyway.';
+                        if (backendModalDesc) backendModalDesc.innerHTML = 'The backend is taking longer than usual to wake up. You can check the <a href="https://quizgo-backend.onrender.com/api/battle-health" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">Render Health Link</a> directly, wait, or proceed.';
                         if (backendWaitBtn) backendWaitBtn.textContent = 'Retry Connection';
                         return false;
                     }
