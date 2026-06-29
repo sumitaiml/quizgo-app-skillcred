@@ -1399,6 +1399,66 @@
             .footer-columns { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
         }
+
+        /* Backend Status Pill Styling */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1.5px solid var(--pane-border);
+            transition: var(--transition);
+            margin-right: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Status: Checking */
+        .status-checking {
+            background: rgba(26, 26, 46, 0.02);
+            color: var(--text-secondary);
+        }
+        .status-checking .status-dot {
+            background: var(--text-secondary);
+            animation: status-pulse 1.5s infinite ease-in-out;
+        }
+
+        /* Status: Active (Connected) */
+        .status-active {
+            background: rgba(16, 185, 129, 0.05);
+            color: var(--accent-green);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+        .status-active .status-dot {
+            background: var(--accent-green);
+        }
+
+        /* Status: Activating (Waking up) */
+        .status-activating {
+            background: rgba(245, 158, 11, 0.05);
+            color: var(--accent-warning);
+            border-color: rgba(245, 158, 11, 0.2);
+        }
+        .status-activating .status-dot {
+            background: var(--accent-warning);
+            animation: status-pulse 1s infinite ease-in-out;
+        }
+
+        /* Pulse animation for sleeping/activating states */
+        @keyframes status-pulse {
+            0% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.4; transform: scale(0.9); }
+        }
     </style>
 </head>
 <body>
@@ -1433,6 +1493,10 @@
         </div>
 
         <div class="nav-controls">
+            <div id="backendStatusPill" class="status-pill status-checking" title="Render Backend Connection Status">
+                <span class="status-dot"></span>
+                <span id="backendStatusText" class="status-text">Backend checking...</span>
+            </div>
             <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
                 <i class="fa-solid fa-circle-half-stroke"></i> <span id="themeToggleText">Light</span>
             </button>
@@ -3117,6 +3181,64 @@
                     quizGenerator.switchTab(trigger.dataset.tab);
                 });
             });
+
+            // Monitor Render backend connection status and handle waking up
+            async function monitorBackendStatus(generator) {
+                const statusPill = document.getElementById('backendStatusPill');
+                const statusText = document.getElementById('backendStatusText');
+                if (!statusPill || !statusText) return;
+
+                const setStatus = (state, label) => {
+                    statusPill.className = `status-pill status-${state}`;
+                    statusText.textContent = label;
+                };
+
+                let retries = 0;
+                const maxRetries = 25; // Check for up to 75 seconds
+
+                const checkConnection = async () => {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 2000); // 2s timeout for fast check
+
+                    try {
+                        const res = await fetch('/api/battle-health', { signal: controller.signal });
+                        clearTimeout(timeoutId);
+                        if (res.ok) {
+                            setStatus('active', 'Backend Active');
+                            return true;
+                        }
+                    } catch (err) {
+                        clearTimeout(timeoutId);
+                    }
+
+                    retries++;
+                    if (retries < maxRetries) {
+                        setStatus('activating', `Backend waking up... (${retries * 3}s)`);
+                        return false;
+                    } else {
+                        setStatus('checking', 'Backend Sleeping');
+                        return false;
+                    }
+                };
+
+                // Initial check
+                let connected = await checkConnection();
+                if (connected) return;
+
+                // Poll every 3 seconds if not instantly connected
+                const interval = setInterval(async () => {
+                    let success = await checkConnection();
+                    if (success) {
+                        clearInterval(interval);
+                        // Rerun auth check once database is up
+                        if (generator && typeof generator.checkAuth === 'function') {
+                            generator.checkAuth();
+                        }
+                    }
+                }, 3000);
+            }
+
+            monitorBackendStatus(quizGenerator);
 
             console.log('📚 SPLINTR Assessment Redesign initialized!');
         });
