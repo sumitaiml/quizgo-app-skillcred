@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Privacy // SPLINTR Assessment Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #F0F0F2;            /* Stark Off-White */
+            --pane-border: rgba(26, 26, 46, 0.08); /* Subtle border */
+            --text-primary: #1A1A2E;        /* Dark Slate */
+            --text-secondary: #5C5C70;      /* Technical Grey */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --nav-bg: rgba(240, 240, 242, 0.85);
+            --right-pane-bg: #EAEAEF;
+            --panel-bg: rgba(240, 240, 242, 0.4);
+            --panel-bg-hover: rgba(240, 240, 242, 0.8);
+            --btn-bg: rgba(26, 26, 46, 0.04);
+            --btn-bg-hover: rgba(26, 26, 46, 0.08);
+            --modal-bg: #F0F0F2;
+            
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            --accent-warning: #F59E0B;
+            --accent-blue: #4A90E2;
+            --btn-cta-text: #F0F0F2;
+            --btn-cta-bg: #1A1A2E;
+            --grid-color: 26, 26, 46;
+            --grid-color-opacity: 0.015;
+        }
+
+        body.theme-dark {
+            --bg-color: #0A0A14;            /* Deep Space Dark */
+            --pane-border: rgba(255, 255, 255, 0.08); 
+            --text-primary: #E2E2E9;        /* Light Grey */
+            --text-secondary: #8E8E9F;      /* Soft Slate */
+            
+            --nav-bg: rgba(10, 10, 20, 0.85);
+            --right-pane-bg: #11111E;
+            --panel-bg: rgba(20, 20, 36, 0.4);
+            --panel-bg-hover: rgba(20, 20, 36, 0.8);
+            --btn-bg: rgba(255, 255, 255, 0.04);
+            --btn-bg-hover: rgba(255, 255, 255, 0.08);
+            --modal-bg: #11111E;
+            
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            --accent-warning: #F59E0B;
+            --accent-blue: #4A90E2;
+            --btn-cta-text: #0A0A14;
+            --btn-cta-bg: #E2E2E9;
+            --grid-color: 255, 255, 255;
+            --grid-color-opacity: 0.02;
+        }
+
+        body.theme-dark-code {
+            --bg-color: #000000;            /* Pure Black */
+            --pane-border: #00FF66;         /* Terminal Green Borders */
+            --text-primary: #00FF66;        /* Matrix Green Text */
+            --text-secondary: #00AA44;      /* Dim Green */
+            
+            --nav-bg: rgba(0, 0, 0, 0.85);
+            --right-pane-bg: #050505;
+            --panel-bg: rgba(0, 10, 0, 0.3);
+            --panel-bg-hover: rgba(0, 25, 0, 0.6);
+            --btn-bg: rgba(0, 255, 102, 0.05);
+            --btn-bg-hover: rgba(0, 255, 102, 0.15);
+            --modal-bg: #000000;
+            
+            --accent-green: #00FF66;
+            --accent-red: #FF3333;
+            --accent-warning: #F59E0B;
+            --accent-blue: #00E5FF;
+            --btn-cta-text: #000000;
+            --btn-cta-bg: #00FF66;
+            --grid-color: 0, 255, 102;
+            --grid-color-opacity: 0.03;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            min-height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Isometric background grid */
+        .iso-grid {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(30deg, rgba(var(--grid-color), var(--grid-color-opacity)) 25%, transparent 25%), 
+                linear-gradient(150deg, rgba(var(--grid-color), var(--grid-color-opacity)) 25%, transparent 25%),
+                linear-gradient(270deg, rgba(var(--grid-color), var(--grid-color-opacity)) 25%, transparent 25%);
+            background-size: 40px 70px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--pane-border);
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo svg {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--pane-border);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--btn-bg-hover);
+            border-color: var(--text-primary);
+        }
+
+        .lang-toggle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .btn-cta {
+            background-color: var(--btn-cta-bg);
+            color: var(--btn-cta-text);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Container */
+        .page-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 140px auto 5rem auto;
+            padding: 0 4rem;
+            position: relative;
+            z-index: 10;
+            flex: 1;
+        }
+
+        .overline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+        }
+
+        /* Security Split Layout */
+        .security-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+
+        .security-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .security-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .security-data-box {
+            position: relative;
+            padding: 2.5rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--pane-border);
+        }
+
+        .sec-stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px dashed var(--pane-border);
+        }
+
+        .sec-stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .sec-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .sec-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Protocol Grid */
+        .protocols-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .protocol-card {
+            position: relative;
+            border: 1px solid var(--pane-border);
+            background: var(--panel-bg);
+            padding: 2.5rem;
+        }
+
+        .protocol-card:hover {
+            background: var(--panel-bg-hover);
+            border-color: var(--text-primary);
+        }
+
+        .protocol-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .protocol-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Technical corners */
+        .bracket-corners {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .bracket-corners .corner {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border: 1px solid var(--text-primary);
+        }
+
+        .bracket-corners .corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+        .bracket-corners .corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+        .bracket-corners .corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+        .bracket-corners .corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+        /* Footer Style */
+        .footer-section {
+            background-color: var(--right-pane-bg);
+            border-top: 1px solid var(--pane-border);
+            padding: 5rem 4rem 3rem 4rem;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            z-index: 10;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--pane-border);
+            padding-bottom: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-col {
+            padding-right: 2rem;
+        }
+
+        .footer-desc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .footer-col-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .footer-link-item:hover {
+            color: var(--text-primary);
+            padding-left: 2px;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .status-indicator .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 1024px) {
+            .security-split { grid-template-columns: 1fr; gap: 2rem; }
+            .protocols-grid { grid-template-columns: 1fr; }
+            .footer-columns { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .nav-overlay { padding: 0 2rem; }
+            .page-container { padding: 0 2rem; margin-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="iso-grid"></div>
+
+    <!-- Navigation Header -->
+    <nav class="nav-overlay">
+        <a href="/" class="logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(45deg);">
+                <rect x="3" y="3" width="18" height="18" />
+                <rect x="9" y="9" width="6" height="6" fill="currentColor" />
+            </svg>
+            <span>SPLINTR</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/" class="nav-link">// Home</a>
+            <a href="/?tab=generator" class="nav-link">// Generate quizzes</a>
+            <a href="/?tab=dashboard" class="nav-link">// Dashboard</a>
+            <a href="/features" class="nav-link">// Features</a>
+            <a href="/security" class="nav-link active">// Security & Privacy</a>
+        </div>
+
+        <div class="nav-controls">
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <i class="fa-solid fa-circle-half-stroke"></i> <span id="themeToggleText">Light</span>
+            </button>
+            <span class="lang-toggle">v EN</span>
+            <a href="/?tab=generator" class="btn-cta">Initialize</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="page-container">
+        <div class="overline">// PROTOCOL SECURE_LINK</div>
+        <h1 class="section-title">Security & Core Privacy</h1>
+
+        <!-- Security Split Layout -->
+        <div class="security-split">
+            <div class="security-text">
+                <p>SPLINTR operates on strict stateless security protocols. When a curriculum document is uploaded, it is parsed and processed in memory. All temporary files are instantly destroyed post-synthesis, ensuring zero-latency data footprint preservation.</p>
+                <p>User credentials and quiz archives are stored in encrypted Supabase PostgreSQL vaults, secured by service-role authentication policies. Your data is yours, isolated from external training sets, and never used for machine learning models.</p>
+                <p>By enforcing row-level security (RLS) policies within the database layer, only the authenticated generator can access historical battle statistics and quiz logs.</p>
+            </div>
+            
+            <div class="security-data-box">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
+                </div>
+                <div class="sec-stat-row">
+                    <span class="sec-label">ENCRYPTION LEVEL</span>
+                    <span class="sec-value">AES-256</span>
+                </div>
+                <div class="sec-stat-row">
+                    <span class="sec-label">DATA RETENTION</span>
+                    <span class="sec-value">0 DAYS (STATELESS)</span>
+                </div>
+                <div class="sec-stat-row">
+                    <span class="sec-label">DATABASE SYNC</span>
+                    <span class="sec-value">SUPABASE SECURE</span>
+                </div>
+                <div class="sec-stat-row">
+                    <span class="sec-label">ROW LEVEL SECURITY</span>
+                    <span class="sec-value">ENABLED (RLS)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Protocols List Grid -->
+        <div class="overline">// SECURITY ARCHITECTURE PROTOCOLS</div>
+        <div class="protocols-grid">
+            <div class="protocol-card">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
+                </div>
+                <h3 class="protocol-title">01. Stateless Processing</h3>
+                <p class="protocol-desc">We do not store your raw curriculum text. The PDF is converted to content streams in memory, analyzed via the Gemini API securely, and immediately discarded.</p>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
+                </div>
+                <h3 class="protocol-title">02. Row Level Isolation</h3>
+                <p class="protocol-desc">Historical quizzes are connected to your unique Supabase Auth UUID. No user can view, edit, or access another developer's telemetry logs.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-columns">
+            <div class="footer-col brand-col">
+                <div class="logo" style="margin-bottom: 1.5rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(45deg);">
+                        <rect x="3" y="3" width="18" height="18" />
+                        <rect x="9" y="9" width="6" height="6" fill="currentColor" />
+                    </svg>
+                    <span>SPLINTR</span>
+                </div>
+                <p class="footer-desc">Stateless cognitive extraction engine for classroom assessments and neural curriculum synthesis.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-title">// PLATFORM</h4>
+                <a href="/" class="footer-link-item">Home</a>
+                <a href="/?tab=generator" class="footer-link-item">Generate Quizzes</a>
+                <a href="/?tab=dashboard" class="footer-link-item">Dashboard</a>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-title">// TECHNOLOGY</h4>
+                <a href="https://deepmind.google/technologies/gemini/" target="_blank" class="footer-link-item">Google Gemini 2.5</a>
+                <a href="https://supabase.com/" target="_blank" class="footer-link-item">Supabase Cloud</a>
+                <a href="https://www.postgresql.org/" target="_blank" class="footer-link-item">PostgreSQL</a>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-title">// SYSTEM STATUS</h4>
+                <span class="status-indicator"><span class="dot"></span> Online & Operational</span>
+                <span style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 1rem; display: block;">v3.0.4-LTS</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPLINTR. All rights reserved. Clinical Brutalist Design.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme toggling script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeToggleText = document.getElementById('themeToggleText');
+            
+            const themes = ['light', 'dark', 'dark-code'];
+            let currentThemeIdx = 0;
+            
+            const savedTheme = localStorage.getItem('splintr-theme') || 'light';
+            currentThemeIdx = themes.indexOf(savedTheme);
+            if (currentThemeIdx === -1) currentThemeIdx = 0;
+            
+            applyTheme(themes[currentThemeIdx]);
+            
+            themeToggleBtn.addEventListener('click', () => {
+                currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+                const nextTheme = themes[currentThemeIdx];
+                applyTheme(nextTheme);
+                localStorage.setItem('splintr-theme', nextTheme);
+            });
+            
+            function applyTheme(themeName) {
+                document.body.classList.remove('theme-light', 'theme-dark', 'theme-dark-code');
+                document.body.classList.add(`theme-${themeName}`);
+                
+                let displayName = 'Light';
+                if (themeName === 'dark') displayName = 'Dark';
+                else if (themeName === 'dark-code') displayName = 'Dark Code';
+                themeToggleText.textContent = displayName;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,1250 +3,2303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizGo.com - Professional Quiz Generation Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>SPLINTR - AI-Powered Quiz Assessment Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            /* Light Theme - Professional Education Colors */
-            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-            --secondary-gradient: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-            --accent-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
-            --primary-blue: #2563eb;
-            --primary-dark: #1e40af;
-            --accent-green: #059669;
-            --accent-orange: #ea580c;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --bg-color: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --text-light: #ffffff;
-            --border-color: #e5e7eb;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
-            
-            /* Dark Theme Colors */
-            --dark-bg: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            --dark-card-bg: rgba(31, 41, 55, 0.95);
-            --dark-text-primary: #f9fafb;
-            --dark-text-secondary: #d1d5db;
-            --dark-border: #374151;
-            --dark-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            
-            --border-radius: 16px;
-            --border-radius-sm: 12px;
+            --bg-color: #F0F0F2;            /* Stark Off-White */
+            --pane-border: rgba(26, 26, 46, 0.08); /* Subtle border */
+            --text-primary: #1A1A2E;        /* Dark Slate */
+            --text-secondary: #5C5C70;      /* Technical Grey */
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --nav-bg: rgba(240, 240, 242, 0.85);
+            --right-pane-bg: #EAEAEF;
+            --panel-bg: rgba(240, 240, 242, 0.4);
+            --panel-bg-hover: rgba(240, 240, 242, 0.8);
+            --btn-bg: rgba(26, 26, 46, 0.04);
+            --btn-bg-hover: rgba(26, 26, 46, 0.08);
+            --input-bg: rgba(240, 240, 242, 0.5);
+            --input-focus-bg: rgba(240, 240, 242, 0.9);
+            --upload-bg: rgba(240, 240, 242, 0.3);
+            --upload-bg-hover: rgba(240, 240, 242, 0.6);
+            --modal-bg: #F0F0F2;
+            
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            --accent-warning: #F59E0B;
+            --accent-blue: #4A90E2;
+            --btn-cta-text: #F0F0F2;
+            --btn-cta-bg: #1A1A2E;
+            --grid-color: 26, 26, 46;
+            --grid-color-opacity: 0.015;
+            
+            --hud-bg: rgba(240, 240, 242, 0.4);
         }
-        
-        [data-theme="dark"] {
-            --bg-color: var(--dark-bg);
-            --card-bg: var(--dark-card-bg);
-            --text-primary: var(--dark-text-primary);
-            --text-secondary: var(--dark-text-secondary);
-            --border-color: var(--dark-border);
-            --shadow: var(--dark-shadow);
+
+        body.theme-dark {
+            --bg-color: #0A0A14;            /* Deep Space Dark */
+            --pane-border: rgba(255, 255, 255, 0.08); 
+            --text-primary: #E2E2E9;        /* Light Grey */
+            --text-secondary: #8E8E9F;      /* Soft Slate */
+            
+            --nav-bg: rgba(10, 10, 20, 0.85);
+            --right-pane-bg: #11111E;
+            --panel-bg: rgba(20, 20, 36, 0.4);
+            --panel-bg-hover: rgba(20, 20, 36, 0.8);
+            --btn-bg: rgba(255, 255, 255, 0.04);
+            --btn-bg-hover: rgba(255, 255, 255, 0.08);
+            --input-bg: rgba(20, 20, 36, 0.5);
+            --input-focus-bg: rgba(20, 20, 36, 0.9);
+            --upload-bg: rgba(20, 20, 36, 0.3);
+            --upload-bg-hover: rgba(20, 20, 36, 0.6);
+            --modal-bg: #11111E;
+            
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            --accent-warning: #F59E0B;
+            --accent-blue: #4A90E2;
+            --btn-cta-text: #0A0A14;
+            --btn-cta-bg: #E2E2E9;
+            --grid-color: 255, 255, 255;
+            --grid-color-opacity: 0.02;
+            
+            --hud-bg: rgba(20, 20, 36, 0.4);
         }
-        
+
+        body.theme-dark-code {
+            --bg-color: #000000;            /* Pure Black */
+            --pane-border: #00FF66;         /* Terminal Green Borders */
+            --text-primary: #00FF66;        /* Matrix Green Text */
+            --text-secondary: #00AA44;      /* Dim Green */
+            
+            --nav-bg: rgba(0, 0, 0, 0.85);
+            --right-pane-bg: #050505;
+            --panel-bg: rgba(0, 10, 0, 0.3);
+            --panel-bg-hover: rgba(0, 25, 0, 0.6);
+            --btn-bg: rgba(0, 255, 102, 0.05);
+            --btn-bg-hover: rgba(0, 255, 102, 0.15);
+            --input-bg: #000000;
+            --input-focus-bg: #080808;
+            --upload-bg: rgba(0, 10, 0, 0.2);
+            --upload-bg-hover: rgba(0, 20, 0, 0.4);
+            --modal-bg: #000000;
+            
+            --accent-green: #00FF66;
+            --accent-red: #FF3333;
+            --accent-warning: #F59E0B;
+            --accent-blue: #00E5FF;
+            --btn-cta-text: #000000;
+            --btn-cta-bg: #00FF66;
+            --grid-color: 0, 255, 102;
+            --grid-color-opacity: 0.03;
+            
+            --hud-bg: rgba(0, 10, 0, 0.4);
+        }
+
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-color);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            transition: var(--transition);
-            line-height: 1.6;
-        }
-        
-        [data-theme="dark"] body {
-            background: var(--dark-bg);
-        }
-        
-        /* Professional Background Pattern */
-        .background-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.02;
-            background-image: 
-                radial-gradient(circle at 25% 25%, var(--primary-blue) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, var(--accent-green) 0%, transparent 50%);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
-        
-        /* Top Navigation */
-        .top-nav {
+
+        /* Faint Isometric Background Grid */
+        .iso-grid {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(30deg, rgba(var(--grid-color), var(--grid-color-opacity)) 25%, transparent 25%), 
+                linear-gradient(150deg, rgba(var(--grid-color), var(--grid-color-opacity)) 25%, transparent 25%),
+                linear-gradient(270deg, rgba(var(--grid-color), var(--grid-color-opacity)) 25%, transparent 25%);
+            background-size: 40px 70px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Top Navigation Overlay */
+        .nav-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            padding: 1rem 2rem;
+            width: 100vw;
+            height: 80px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--pane-border);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
         }
-        
+
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-blue);
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 2px;
         }
-        
-        .logo i {
-            color: var(--accent-green);
-            font-size: 2rem;
+
+        .logo svg {
+            color: var(--text-primary);
         }
-        
+
+        .nav-divider {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--pane-border);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .left-group {
+            margin-right: auto;
+            padding-left: 4rem;
+        }
+
+        .right-group {
+            margin-left: auto;
+            padding-right: 4rem;
+        }
+
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
-        
-        .theme-toggle, .auth-btn {
-            background: var(--primary-gradient);
-            color: var(--text-light);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+
+        .lang-toggle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--pane-border);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
             cursor: pointer;
             transition: var(--transition);
-            font-weight: 600;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.9rem;
         }
-        
-        .theme-toggle:hover, .auth-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+
+        .theme-toggle:hover {
+            background: var(--btn-bg-hover);
+            border-color: var(--text-primary);
         }
-        
-        /* Main Container */
-        .main-container {
-            margin-top: 80px;
-            padding: 2rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+
+        .btn-cta {
+            background-color: var(--btn-cta-bg);
+            color: var(--btn-cta-text);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        
-        /* Hero Section */
-        .hero-section {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: var(--border-radius);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+
+        .btn-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Split Screen Layout (Hero Section) */
+        .split-viewport {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
             position: relative;
+            border-bottom: 1px solid var(--pane-border);
+        }
+
+        .pane {
+            position: relative;
+            width: 50%;
+            height: 100%;
             overflow: hidden;
         }
-        
-        .hero-section::before {
-            content: '';
+
+        .left-pane {
+            border-right: 1px solid var(--pane-border);
+            display: flex;
+            flex-direction: column;
+            padding: 120px 4rem 4rem 4rem;
+            overflow-y: auto;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .right-pane {
+            background-color: var(--right-pane-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        /* Blueprint Canvas background */
+        #blueprintCanvas {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.12;
             z-index: 0;
         }
-        
-        .hero-content {
+
+        .pane-content-wrapper {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Tab Content Transitions */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        .overline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .main-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            line-height: 1.1;
+            color: var(--text-primary);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -1.5px;
+            transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+        }
+
+        .main-headline.fade-out {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+
+        .main-headline.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .main-headline .thin {
+            font-weight: 200;
+            letter-spacing: -0.5px;
+        }
+
+        .description {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 3.5rem;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding-top: 3rem;
             position: relative;
             z-index: 2;
         }
-        
-        .hero-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+
+        .stat-box {
+            position: relative;
+            padding: 1.25rem 0.5rem;
+            background: var(--panel-bg);
+            backdrop-filter: blur(8px);
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.35rem;
             font-weight: 800;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: slideInUp 1s ease-out;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
         }
-        
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            animation: slideInUp 1s ease-out 0.2s both;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .feature-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            animation: slideInUp 1s ease-out 0.4s both;
-        }
-        
-        .stat-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--border-radius-sm);
-            text-align: center;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-blue);
-        }
-        
-        .stat-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-        }
-        
+
         .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
             color: var(--text-secondary);
-            font-weight: 500;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Technical Corner Brackets */
+        .bracket-corners {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .bracket-corners .corner {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border: 1px solid var(--text-primary);
+        }
+
+        .bracket-corners .corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+        .bracket-corners .corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+        .bracket-corners .corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+        .bracket-corners .corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+        /* General buttons styling */
+        .btn-bracket {
+            position: relative;
+            background: var(--btn-bg);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
             font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
         }
-        
-        /* Control Panel */
-        .control-panel {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+
+        .btn-bracket:hover {
+            background: var(--btn-bg-hover);
+            transform: translateY(-1px);
         }
-        
-        .panel-header {
-            text-align: center;
-            margin-bottom: 3rem;
+
+        .btn-dark {
+            background-color: var(--btn-cta-bg);
+            color: var(--btn-cta-text);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .panel-title {
-            font-family: 'Poppins', sans-serif;
+
+        .btn-dark:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Form & Control styles */
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .panel-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* File Upload Zone */
-        .upload-zone {
-            border: 2px dashed var(--border-color);
-            border-radius: var(--border-radius-sm);
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: var(--transition);
-            background: linear-gradient(145deg, var(--card-bg), rgba(37, 99, 235, 0.02));
-            cursor: pointer;
             margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: -0.5px;
         }
-        
-        .upload-zone::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--primary-gradient);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .upload-zone:hover::before {
-            opacity: 0.05;
-        }
-        
-        .upload-zone.dragover {
-            border-color: var(--primary-blue);
-            background: rgba(37, 99, 235, 0.08);
-            transform: scale(1.01);
-        }
-        
-        .upload-zone.file-selected {
-            border-color: var(--success-color);
-            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(37, 99, 235, 0.05));
-            animation: successPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes successPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3); }
-            50% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-        }
-        
-        .upload-icon {
-            font-size: 3rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-        
-        .upload-zone:hover .upload-icon {
-            transform: scale(1.1);
-            color: var(--success-color);
-        }
-        
-        .upload-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .upload-subtext {
+
+        .control-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
         }
-        
-        /* Mode Selector */
-        .mode-selector {
-            margin: 2rem 0;
+
+        .form-row-group {
+            margin-bottom: 1.75rem;
         }
-        
-        .mode-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
+
         .mode-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
         }
-        
-        .mode-card {
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius-sm);
-            padding: 2rem;
+
+        .mode-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--pane-border);
+            color: var(--text-secondary);
             cursor: pointer;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            text-transform: uppercase;
         }
-        
-        .mode-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-        
-        .mode-card:hover::before,
-        .mode-card.selected::before {
-            transform: scaleX(1);
-        }
-        
-        .mode-card:hover,
-        .mode-card.selected {
-            border-color: var(--primary-blue);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .mode-card.selected {
-            background: linear-gradient(145deg, var(--card-bg), rgba(37, 99, 235, 0.05));
-        }
-        
-        .mode-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .mode-icon {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-        }
-        
-        .mode-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
+
+        .mode-btn:hover {
+            border-color: var(--text-primary);
             color: var(--text-primary);
         }
-        
-        .mode-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
+
+        .mode-btn.active {
+            background-color: var(--text-primary);
+            border-color: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .control-box {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--text-primary);
+            background-color: var(--input-bg);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            outline: none;
+            border-radius: 0;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            background-color: var(--input-focus-bg);
+            box-shadow: 0 0 0 2px var(--glow-color);
+        }
+
+        /* Upload Zone style */
+        .upload-zone {
+            position: relative;
+            border: 1px dashed rgba(26, 26, 46, 0.25);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            background: var(--upload-bg);
+            margin-bottom: 1.75rem;
+            transition: var(--transition);
+        }
+
+        .upload-zone:hover {
+            border-color: var(--text-primary);
+            background: var(--upload-bg-hover);
+        }
+
+        .upload-zone.dragover {
+            background: var(--btn-bg-hover);
+            border-color: var(--text-primary);
+        }
+
+        .upload-zone.file-selected {
+            border-color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.03);
+        }
+
+        .upload-icon {
+            font-size: 2.2rem;
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
-        
-        .mode-features {
+
+        .upload-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: var(--text-primary);
+        }
+
+        .upload-subtext {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Dashboard Command Center */
+        .stats-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-summary-box {
+            position: relative;
+            padding: 1.5rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--pane-border);
+            text-align: center;
+        }
+
+        .stat-summary-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-summary-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .recent-quizzes-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--pane-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .recent-quizzes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 0.25rem;
+        }
+
+        .recent-quizzes-list::-webkit-scrollbar { width: 4px; }
+        .recent-quizzes-list::-webkit-scrollbar-track { background: transparent; }
+        .recent-quizzes-list::-webkit-scrollbar-thumb { background: var(--pane-border); }
+
+        .recent-battle-item {
+            position: relative;
+            padding: 1.25rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--pane-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .recent-battle-item:hover {
+            background: var(--panel-bg-hover);
+            border-color: var(--text-primary);
+        }
+
+        .battle-info {
+            flex: 1;
+            min-width: 0;
+            padding-right: 1rem;
+        }
+
+        .action-btn-sm {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 1px solid var(--text-primary);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .action-btn-sm:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        /* Results Toolbar */
+        .results-actions-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .results-toolbar {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-top: 0.75rem;
         }
-        
-        .feature-tag {
-            background: var(--primary-gradient);
-            color: var(--text-light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        /* Control Grid */
-        .controls-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .control-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-sm);
-            padding: 2rem;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        
-        .control-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .control-label {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+
+        .btn-toolbar {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        .control-icon {
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius-sm);
-            font-size: 1rem;
-            transition: var(--transition);
-            background: var(--card-bg);
-            color: var(--text-primary);
-            font-family: inherit;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            transform: translateY(-1px);
-        }
-        
-        .input-hint {
-            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--pane-border);
             color: var(--text-secondary);
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        
-        /* Generate Button */
-        .generate-section {
-            text-align: center;
-            margin: 3rem 0;
-        }
-        
-        .generate-btn {
-            background: var(--primary-gradient);
-            color: var(--text-light);
-            border: none;
-            padding: 1.25rem 3rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .btn-toolbar:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background-color: var(--panel-bg-hover);
+        }
+
+        /* Question Cards in Results View */
+        .questions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .questions-container::-webkit-scrollbar { width: 4px; }
+        .questions-container::-webkit-scrollbar-track { background: transparent; }
+        .questions-container::-webkit-scrollbar-thumb { background: var(--pane-border); }
+
+        .question-card {
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-            font-family: 'Poppins', sans-serif;
+            background: rgba(240, 240, 242, 0.3);
+            border: 1px solid var(--pane-border);
+            padding: 2rem;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--pane-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .question-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .question-type-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--text-primary);
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .question-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .option-item {
+            position: relative;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid var(--pane-border);
+            background: rgba(240, 240, 242, 0.5);
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .answer-section {
+            background: rgba(16, 185, 129, 0.04);
+            border-left: 3px solid #10B981;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .explanation-section {
+            background: rgba(74, 144, 226, 0.04);
+            border-left: 3px solid #4A90E2;
+            padding: 1rem 1.25rem;
+        }
+
+        .answer-label {
+            color: #10B981;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
-        .generate-btn::before {
-            content: '';
+
+        .explanation-label {
+            color: #4A90E2;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Particle Canvas & HUD Overlay on Right Column */
+        #particleCanvas {
             position: absolute;
-            top: 0;
-            left: -100%;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            z-index: 1;
         }
-        
-        .generate-btn:hover::before {
-            left: 100%;
+
+        .radial-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.08) 0%, rgba(138, 43, 226, 0.05) 50%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
-        
-        .generate-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+
+        .hud-label {
+            position: absolute;
+            padding: 0.6rem 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: rgba(240, 240, 242, 0.55);
+            backdrop-filter: blur(10px);
+            z-index: 10;
         }
-        
-        .generate-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
+
+        #hud-1 { top: 120px; left: 40px; }
+        #hud-2 { top: 120px; right: 40px; }
+        #hud-3 { bottom: 120px; left: 40px; }
+        #hud-4 { bottom: 120px; right: 40px; }
+
+        /* SCROLLING CONTENT BELOW HERO */
+        .scrolling-content {
+            position: relative;
+            z-index: 10;
+            background-color: var(--bg-color);
         }
-        
-        .btn-icon {
-            margin-right: 0.75rem;
-            font-size: 1.3rem;
+
+        .page-section {
+            padding: 6rem 4rem;
+            border-bottom: 1px solid var(--pane-border);
+            max-width: 1300px;
+            margin: 0 auto;
         }
-        
-        /* Loading Screen */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: rgba(240, 240, 242, 0.4);
+            border: 1px solid var(--pane-border);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: var(--text-primary);
+            background: rgba(240, 240, 242, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .feature-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-desc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .security-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            margin-top: 2rem;
+            align-items: center;
+        }
+
+        .security-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .security-data-box {
+            position: relative;
+            padding: 2rem;
+            background: var(--panel-bg);
+            border: 1px solid var(--pane-border);
+        }
+
+        .sec-stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed var(--pane-border);
+        }
+
+        .sec-stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .sec-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .sec-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Footer Style */
+        .footer-section {
+            background-color: var(--right-pane-bg);
+            border-top: 1px solid var(--pane-border);
+            padding: 5rem 4rem 3rem 4rem;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--pane-border);
+            padding-bottom: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-col {
+            padding-right: 2rem;
+        }
+
+        .footer-desc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .footer-col-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .footer-link-item:hover {
+            color: var(--text-primary);
+            padding-left: 2px;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .status-indicator .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            color: var(--text-primary);
+        }
+
+        /* Auth Modal Styling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            z-index: 6000;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--modal-bg);
+            border: 1px solid var(--text-primary);
+            padding: 2.5rem;
+            width: 95%;
+            max-width: 440px;
+            box-sizing: border-box;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.08);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--pane-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--pane-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--text-primary);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-row {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-actions button {
+            width: 100%;
+        }
+
+        .btn-link {
+            background: transparent;
+            border: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            text-decoration: underline;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .btn-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Loading Screen overlay */
         .loading-overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(31, 41, 55, 0.95);
+            inset: 0;
+            background: var(--nav-bg);
             backdrop-filter: blur(10px);
-            z-index: 2000;
-            animation: fadeIn 0.5s ease-out;
+            z-index: 8000;
+            animation: modalFadeIn 0.3s ease-out;
         }
-        
+
         .loading-card {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: var(--card-bg);
-            backdrop-filter: blur(30px);
-            border-radius: var(--border-radius);
-            padding: 4rem;
+            background-color: var(--modal-bg);
+            border: 1px solid var(--text-primary);
+            padding: 4rem 2rem;
             text-align: center;
-            box-shadow: var(--shadow);
-            min-width: 450px;
-            border: 1px solid var(--border-color);
+            width: 90%;
+            max-width: 440px;
         }
-        
+
         .loading-spinner {
-            width: 80px;
-            height: 80px;
-            border: 4px solid var(--border-color);
-            border-top: 4px solid var(--primary-blue);
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--pane-border);
+            border-top: 3px solid var(--text-primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 2rem;
-            position: relative;
         }
-        
-        .loading-spinner::after {
-            content: '📚';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5rem;
-        }
-        
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         .loading-text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
-        
+
         .loading-subtext {
             color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
             margin-bottom: 2rem;
         }
-        
+
         .progress-bar {
             width: 100%;
-            height: 6px;
-            background: var(--border-color);
-            border-radius: 3px;
+            height: 2px;
+            background: var(--pane-border);
             overflow: hidden;
-            margin: 2rem 0;
         }
-        
+
         .progress-fill {
             height: 100%;
-            background: var(--primary-gradient);
-            border-radius: 3px;
+            background: var(--text-primary);
+            width: 0%;
             animation: progress 3s ease-in-out infinite;
         }
-        
+
         @keyframes progress {
             0% { width: 0%; }
             50% { width: 75%; }
             100% { width: 100%; }
         }
-        
-        /* Results Section */
-        .results-section {
-            display: none;
-            margin-top: 3rem;
-            animation: slideInUp 0.8s ease-out;
-        }
-        
-        /* Quiz Actions Toolbar */
-        .quiz-actions-toolbar {
-            display: none;
-            position: sticky;
-            top: 90px;
-            z-index: 800;
-            margin-bottom: 2rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-sm);
-            padding: 1rem;
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow);
-        }
-        
-        .quiz-actions-inner {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .quiz-action-btn {
-            background: var(--secondary-gradient);
-            color: var(--text-light);
-            border: 1px solid var(--primary-blue);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .quiz-action-btn:hover {
-            background: var(--primary-gradient);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
-        
-        .results-header {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-        
-        .results-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-        
-        .results-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .action-btn {
-            background: var(--secondary-gradient);
-            color: var(--text-light);
-            border: 1px solid var(--primary-blue);
-            padding: 0.875rem 1.75rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .action-btn:hover {
-            background: var(--primary-gradient);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
-        
-        /* Question Cards */
-        .questions-container {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .question-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        
-        .question-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .question-header {
-            background: var(--secondary-gradient);
-            color: var(--text-light);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .question-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .question-type-badge {
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .question-type-badge.mcq { background: var(--success-color); color: white; }
-        .question-type-badge.true_false { background: var(--warning-color); color: white; }
-        .question-type-badge.fill_blank { background: var(--danger-color); color: white; }
-        .question-type-badge.essay { background: var(--text-secondary); color: white; }
-        
-        .question-content {
-            padding: 2rem;
-        }
-        
-        .question-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
-        .options-list {
-            display: grid;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .option-item {
-            background: linear-gradient(145deg, var(--card-bg), rgba(37, 99, 235, 0.02));
-            padding: 1.2rem 1.5rem;
-            border-radius: var(--border-radius-sm);
-            border: 2px solid var(--border-color);
-            transition: var(--transition);
-            cursor: pointer;
-            font-weight: 500;
-        }
-        
-        .option-item:hover {
-            border-color: var(--primary-blue);
-            background: rgba(37, 99, 235, 0.08);
-            transform: translateX(8px);
-        }
-        
-        .answer-section {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
-            padding: 1.5rem;
-            border-radius: var(--border-radius-sm);
-            border-left: 4px solid var(--success-color);
-            margin: 2rem 0;
-        }
-        
-        .answer-label {
-            font-weight: 700;
-            color: var(--success-color);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .explanation-section {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
-            padding: 1.5rem;
-            border-radius: var(--border-radius-sm);
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .explanation-label {
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        /* Message System */
+
+        /* Toast Messages */
         .message {
             position: fixed;
             top: 100px;
             right: 2rem;
-            max-width: 400px;
-            padding: 1.25rem;
-            border-radius: var(--border-radius-sm);
-            color: var(--text-light);
-            font-weight: 500;
-            box-shadow: var(--shadow);
-            z-index: 2001;
-            transform: translateX(100%);
-            transition: var(--transition);
-            backdrop-filter: blur(20px);
-        }
-        
-        .message.show { transform: translateX(0); }
-        .message.success { background: linear-gradient(135deg, var(--success-color), rgba(16, 185, 129, 0.8)); }
-        .message.error { background: linear-gradient(135deg, var(--danger-color), rgba(239, 68, 68, 0.8)); }
-        .message.warning { background: linear-gradient(135deg, var(--warning-color), rgba(245, 158, 11, 0.8)); }
-        
-        /* Animations */
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .main-container { padding: 1rem; }
-            .hero-section, .control-panel { padding: 2rem 1.5rem; }
-            .controls-grid { grid-template-columns: 1fr; }
-            .mode-options { grid-template-columns: 1fr; }
-            .feature-stats { grid-template-columns: repeat(2, 1fr); }
-            .loading-card { min-width: 90vw; margin: 0 1rem; }
-            .top-nav { padding: 1rem; }
-            .logo { font-size: 1.5rem; }
-            .nav-controls { gap: 0.5rem; }
-            .theme-toggle, .auth-btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
-            .quiz-actions-toolbar { top: 70px; }
-        }
-        
-        /* Print Styles */
-        @media print {
-            .top-nav, .hero-section, .control-panel, .message, .loading-overlay, .quiz-actions-toolbar { display: none !important; }
-            body { background: white; color: black; }
-            .question-card { break-inside: avoid; margin-bottom: 2rem; }
+            background-color: var(--modal-bg);
+            border: 1px solid var(--text-primary);
+            padding: 1rem 1.5rem;
+            z-index: 9000;
+            transform: translateX(120%);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 350px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
         }
 
-        /* Auth Modal */
-        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 3000; }
-        .modal { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius); width: 95%; max-width: 520px; box-shadow: var(--shadow); overflow: hidden; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(5,150,105,0.06)); }
-        .modal-title { font-weight: 700; color: var(--text-primary); }
-        .modal-close { background: transparent; border: none; cursor: pointer; color: var(--text-secondary); font-size: 1.1rem; }
-        .modal-body { padding: 1.25rem; }
-        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-        .tab-btn { flex: 1; padding: 0.75rem; border-radius: 10px; border: 1px solid var(--border-color); background: var(--card-bg); cursor: pointer; font-weight: 600; }
-        .tab-btn.active { border-color: var(--primary-blue); background: linear-gradient(145deg, var(--card-bg), rgba(37, 99, 235, 0.05)); }
-        .auth-form { display: none; }
-        .auth-form.active { display: block; }
-        .form-row { margin-bottom: 0.9rem; }
-        .form-row label { display: block; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; }
-        .modal .form-input { border-radius: 10px; }
-        .form-actions { margin-top: 1rem; display: flex; gap: 0.75rem; }
-        .btn-primary { background: var(--primary-gradient); color: white; border: none; padding: 0.8rem 1.25rem; border-radius: 10px; cursor: pointer; font-weight: 700; }
-        .btn-secondary { background: var(--secondary-gradient); color: white; border: 1px solid var(--primary-blue); padding: 0.8rem 1.25rem; border-radius: 10px; cursor: pointer; font-weight: 700; }
+        .message.show {
+            transform: translateX(0);
+        }
+
+        .message.success {
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .message.error {
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .message.warning {
+            border-left: 4px solid var(--accent-warning);
+        }
+
+        body.results-active .left-pane {
+            width: 100% !important;
+            border-right: none !important;
+        }
+
+        body.results-active .right-pane {
+            display: none !important;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            nav, footer, .nav-overlay, .footer-section, .stats-row, .iso-grid, .right-pane, #blueprintCanvas, .results-actions-wrapper, .scrolling-content, .message, .modal-overlay, .loading-overlay {
+                display: none !important;
+            }
+            main.split-viewport {
+                display: block !important;
+                border: none !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+            .left-pane {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                overflow: visible !important;
+            }
+            .pane-content-wrapper {
+                display: block !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+            .tab-content {
+                display: none !important;
+            }
+            .tab-content#tab-results {
+                display: block !important;
+                overflow: visible !important;
+            }
+            .questions-container {
+                max-height: none !important;
+                overflow: visible !important;
+            }
+            .question-card {
+                page-break-inside: avoid;
+                border-color: #000000 !important;
+                background: #FFFFFF !important;
+                color: #000000 !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .split-viewport { flex-direction: column; height: auto; }
+            .pane { width: 100%; height: 500px; }
+            .left-pane { padding: 100px 2rem 2rem 2rem; overflow-y: visible; height: auto; }
+            .right-pane { height: 450px; }
+            .nav-overlay { padding: 0 2rem; }
+            .nav-divider { display: none; }
+            .left-group { padding-left: 1rem; }
+            .right-group { display: none; }
+            #hud-1 { top: 40px; left: 20px; }
+            #hud-2 { top: 40px; right: 20px; }
+            #hud-3 { bottom: 40px; left: 20px; }
+            #hud-4 { bottom: 40px; right: 20px; }
+
+            .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .security-split { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-columns { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .page-section { padding: 4rem 2rem; }
+            .footer-section { padding: 4rem 2rem 2rem 2rem; }
+        }
+        @media (max-width: 640px) {
+            .footer-columns { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
     </style>
 </head>
-<body data-theme="light">
-    <!-- Professional Background Pattern -->
-    <div class="background-pattern"></div>
-    
+<body>
+    <!-- Faint Background Grid Pattern -->
+    <div class="iso-grid"></div>
+
     <!-- Top Navigation -->
-    <nav class="top-nav">
-        <div class="logo">
-            <i class="fas fa-graduation-cap"></i>
-            QuizGo.com
+    <nav class="nav-overlay">
+        <!-- Minimal Geometric Logo -->
+        <a href="#" class="logo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(45deg);">
+                <rect x="3" y="3" width="18" height="18" stroke="currentColor" />
+                <rect x="9" y="9" width="6" height="6" fill="currentColor" />
+            </svg>
+            <span>SPLINTR</span>
+        </a>
+
+        <!-- Left pane links -->
+        <div class="nav-links left-group">
+            <a href="/" class="nav-link tab-trigger active" data-tab="landing">// Home</a>
+            <a href="/?tab=generator" class="nav-link tab-trigger" data-tab="generator" id="navLinkGen">// Generate quizzes</a>
+            <a href="/?tab=dashboard" class="nav-link tab-trigger" data-tab="dashboard" id="navLinkDash">// Dashboard</a>
         </div>
+
+        <!-- 50% split divider line overlay -->
+        <div class="nav-divider"></div>
+
+        <!-- Right pane links -->
+        <div class="nav-links right-group">
+            <a href="/features" class="nav-link">// Features</a>
+            <a href="/security" class="nav-link">// Security & Privacy</a>
+        </div>
+
         <div class="nav-controls">
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-                <span>Dark Mode</span>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <i class="fa-solid fa-circle-half-stroke"></i> <span id="themeToggleText">Light</span>
             </button>
-            <button class="auth-btn" id="authBtn">
-                <i class="fas fa-user-circle"></i>
-                <span>Teacher Login</span>
-            </button>
+            <span class="lang-toggle">v EN</span>
+            <button class="btn-cta" id="authBtn">Initialize</button>
         </div>
+
     </nav>
-    
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <i class="fas fa-clipboard-list"></i> Professional Quiz Generator
-                </h1>
-                <p class="hero-subtitle">
-                    Empower your teaching with AI-driven quiz generation. Transform any PDF document into engaging, 
-                    customizable quizzes for your students. Save time, enhance learning outcomes, and create 
-                    professional assessments in minutes.
-                </p>
-                
-                <div class="feature-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">10K+</div>
-                        <div class="stat-label">Teachers Trust Us</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Question Formats</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">AI</div>
-                        <div class="stat-label">Powered Technology</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Available Access</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+    <!-- Split Screen Viewports -->
+    <main class="split-viewport">
         
-        <!-- Control Panel -->
-        <section class="control-panel">
-            <div class="panel-header">
-                <h2 class="panel-title">
-                    <i class="fas fa-cogs"></i> Quiz Generation Center
-                </h2>
-                <p class="panel-subtitle">
-                    Upload your educational materials and customize your quiz settings to create 
-                    professional assessments tailored to your curriculum needs.
-                </p>
-            </div>
-            
-            <form id="quizForm" enctype="multipart/form-data">
-                <!-- File Upload Zone -->
-                <div class="upload-zone" id="uploadZone">
-                    <input type="file" id="pdfFile" name="pdf_file" accept=".pdf" required hidden>
-                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                    <div class="upload-text" id="uploadText">
-                        Upload Your Educational PDF Document
-                    </div>
-                    <div class="upload-subtext">
-                        Maximum file size: 16MB | Supported format: PDF
+        <!-- LEFT COLUMN: CONTENT & DYNAMIC UTILITIES -->
+        <section class="pane left-pane">
+            <!-- Isometric Quantum Circuit Canvas -->
+            <canvas id="blueprintCanvas"></canvas>
+
+            <div class="pane-content-wrapper">
+                
+                <!-- LANDING VIEW -->
+                <div class="tab-content active" id="tab-landing">
+                    <div class="overline">// GENERATE ONCE, PUBLISH EVERYWHERE</div>
+                    <h1 class="main-headline" id="heroHeadline">
+                        One piece of content.<br>
+                        <span class="thin">Every platform. Instantly.</span>
+                    </h1>
+
+                    <p class="description">
+                        Deploy zero-latency neural bridging to parse syllabus documents and generate high-fidelity university-grade evaluations. Feed PDF coursework directly into our localized cognitive processors.
+                    </p>
+                    <div class="btn-row">
+                        <button class="btn-bracket" id="startBtn">
+                            <div class="bracket-corners">
+                                <span class="corner tl"></span>
+                                <span class="corner tr"></span>
+                                <span class="corner bl"></span>
+                                <span class="corner br"></span>
+                            </div>
+                            <span style="position: relative; z-index: 2;">Get Started</span>
+                        </button>
+                        <button class="btn-dark" id="landingLearnMoreBtn">Learn More</button>
                     </div>
                 </div>
-                
-                <!-- Quiz Type Selector -->
-                <div class="mode-selector">
-                    <h3 class="mode-title">
-                        <i class="fas fa-list-alt"></i> Select Quiz Format
-                    </h3>
-                    <div class="mode-options">
-                        <div class="mode-card" data-mode="mcq">
-                            <div class="mode-header">
-                                <i class="fas fa-check-circle mode-icon"></i>
-                                <div class="mode-name">Multiple Choice</div>
-                            </div>
-                            <div class="mode-description">
-                                Traditional multiple choice questions with four options per question.
-                            </div>
-                            <div class="mode-features">
-                                <span class="feature-tag">4 Options</span>
-                                <span class="feature-tag">Single Correct</span>
-                                <span class="feature-tag">Quick Grading</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mode-card" data-mode="true_false">
-                            <div class="mode-header">
-                                <i class="fas fa-toggle-on mode-icon"></i>
-                                <div class="mode-name">True or False</div>
-                            </div>
-                            <div class="mode-description">
-                                Binary choice questions for quick assessment and concept verification.
-                            </div>
-                            <div class="mode-features">
-                                <span class="feature-tag">Binary Choice</span>
-                                <span class="feature-tag">Fast Assessment</span>
-                                <span class="feature-tag">Easy Scoring</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mode-card" data-mode="fill_blank">
-                            <div class="mode-header">
-                                <i class="fas fa-pen-alt mode-icon"></i>
-                                <div class="mode-name">Fill in the Blank</div>
-                            </div>
-                            <div class="mode-description">
-                                Test student recall and understanding with targeted fill-in questions.
-                            </div>
-                            <div class="mode-features">
-                                <span class="feature-tag">Recall Testing</span>
-                                <span class="feature-tag">Key Concepts</span>
-                                <span class="feature-tag">Memory Assessment</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Control Settings -->
-                <div class="controls-grid">
-                    <div class="control-card">
-                        <label class="control-label">
-                            <i class="fas fa-hashtag control-icon"></i>
-                            Number of Questions
-                        </label>
-                        <input type="number" class="form-input" id="numQuestions" name="num_questions" 
-                               min="4" max="20" value="8" required>
-                        <div class="input-hint">
-                            <i class="fas fa-info-circle"></i>
-                            Choose between 4-20 questions for optimal quiz length
-                        </div>
-                    </div>
+
+                <!-- GENERATOR VIEW -->
+                <div class="tab-content" id="tab-generator">
+                    <div class="overline">// COGNITIVE EXTRACTION</div>
+                    <h2 class="section-title">Assessment Synthesis</h2>
                     
-                    <div class="control-card">
-                        <label class="control-label">
-                            <i class="fas fa-chart-line control-icon"></i>
-                            Difficulty Level
-                        </label>
-                        <select class="form-input" id="difficulty" name="difficulty">
-                            <option value="Easy">Beginner Level - Introductory Concepts</option>
-                            <option value="Medium" selected>Intermediate Level - Standard Assessment</option>
-                            <option value="Hard">Advanced Level - Challenging Questions</option>
-                        </select>
-                        <div class="input-hint">
-                            <i class="fas fa-graduation-cap"></i>
-                            Select appropriate difficulty for your students' level
+                    <form id="quizForm" enctype="multipart/form-data">
+                        <!-- File Upload Zone -->
+                        <div class="upload-zone" id="uploadZone">
+                            <input type="file" id="pdfFile" name="pdf_file" accept=".pdf" required hidden>
+                            <div class="bracket-corners">
+                                <span class="corner tl"></span>
+                                <span class="corner tr"></span>
+                                <span class="corner bl"></span>
+                                <span class="corner br"></span>
+                            </div>
+                            <i class="fa-regular fa-file-pdf upload-icon"></i>
+                            <div class="upload-text" id="uploadText">Click or Drag PDF here</div>
+                            <div class="upload-subtext">Supports PDF document up to 16MB</div>
+                        </div>
+
+                        <!-- Question Type Buttons -->
+                        <div class="form-row-group">
+                            <label class="control-label">// FORMAT SELECTOR</label>
+                            <div class="mode-options">
+                                <button type="button" class="mode-btn active" data-mode="mcq">Multiple Choice</button>
+                                <button type="button" class="mode-btn" data-mode="true_false">True/False</button>
+                                <button type="button" class="mode-btn" data-mode="fill_blank">Fill In Blanks</button>
+                            </div>
+                        </div>
+
+                        <!-- Numeric Parameters -->
+                        <div class="controls-grid">
+                            <div class="control-box">
+                                <label class="control-label">// ITEMS COUNT (4-20)</label>
+                                <input type="number" class="form-input" id="numQuestions" name="num_questions" min="4" max="20" value="8" required>
+                            </div>
+                            
+                            <div class="control-box">
+                                <label class="control-label">// COGNITIVE LEVEL</label>
+                                <select class="form-input" id="difficulty" name="difficulty">
+                                    <option value="Easy">Beginner Level</option>
+                                    <option value="Medium" selected>Standard Level</option>
+                                    <option value="Hard">Advanced Level</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="btn-row" style="margin-top: 2rem;">
+                            <button type="submit" class="btn-bracket" id="generateBtn">
+                                <div class="bracket-corners">
+                                    <span class="corner tl"></span>
+                                    <span class="corner tr"></span>
+                                    <span class="corner bl"></span>
+                                    <span class="corner br"></span>
+                                </div>
+                                <span style="position: relative; z-index: 2;"><i class="fas fa-microchip"></i> Generate the quiz</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TELEMETRY / HISTORY VIEW -->
+                <div class="tab-content" id="tab-dashboard">
+                    <div class="overline">// TELEMETRY DEBRIEFINGS</div>
+                    <h2 class="section-title">Teacher Command Center</h2>
+                    
+                    <div class="stats-summary-grid">
+                        <div class="stat-summary-box">
+                            <div class="bracket-corners">
+                                <span class="corner tl"></span>
+                                <span class="corner tr"></span>
+                                <span class="corner bl"></span>
+                                <span class="corner br"></span>
+                            </div>
+                            <div class="stat-summary-num" id="totalBattlesStat">0</div>
+                            <div class="stat-summary-label">Quizzes Synced</div>
+                        </div>
+                        <div class="stat-summary-box">
+                            <div class="bracket-corners">
+                                <span class="corner tl"></span>
+                                <span class="corner tr"></span>
+                                <span class="corner bl"></span>
+                                <span class="corner br"></span>
+                            </div>
+                            <div class="stat-summary-num" style="color: #10B981;">Online</div>
+                            <div class="stat-summary-label">Sync status</div>
                         </div>
                     </div>
+
+                    <div class="recent-quizzes-header">// RECENT ARCHIVES</div>
+                    <div class="recent-quizzes-list" id="recentBattlesList">
+                        <div style="color: var(--text-secondary); text-align: center; padding: 2rem;">Loading assessments...</div>
+                    </div>
                 </div>
-                
-                <!-- Generate Button -->
-                <div class="generate-section">
-                    <button type="submit" class="generate-btn" id="generateBtn">
-                        <i class="fas fa-magic btn-icon"></i>
-                        Generate Professional Quiz
-                    </button>
+
+                <!-- EVALUATION DISPLAY VIEW -->
+                <div class="tab-content" id="tab-results">
+                    <div class="results-actions-wrapper">
+                        <div class="overline">// EXTRACTED SCHEMATICS</div>
+                        <h2 class="section-title" style="margin-bottom: 0.5rem;">Evaluation Matrix</h2>
+                        
+                        <div class="results-toolbar">
+                            <button class="btn-toolbar" id="printQuizBtn"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-toolbar" id="shareQuizBtn"><i class="fas fa-share"></i> Share</button>
+                            <button class="btn-toolbar" id="downloadQuizBtn"><i class="fas fa-download"></i> Get HTML</button>
+                            <button class="btn-toolbar" id="downloadBtn"><i class="fas fa-file-code"></i> Get JSON</button>
+                        </div>
+                    </div>
+
+                    <div class="questions-container" id="questionsContainer">
+                        <!-- Questions will populate here dynamically -->
+                    </div>
                 </div>
-            </form>
+
+            </div>
+
+            <!-- Stats Row at bottom left -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="stat-num">128Q</div>
+                    <div class="stat-label">Neural Core</div>
+                </div>
+                <div class="stat-box">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="stat-num">0.01ms</div>
+                    <div class="stat-label">Latency</div>
+                </div>
+                <div class="stat-box">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="stat-num">250K+</div>
+                    <div class="stat-label">Quizzes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Stateless</div>
+                </div>
+            </div>
         </section>
-        
-        <!-- Results Section -->
-        <section class="results-section" id="resultsSection">
-            <!-- Quiz Actions Toolbar -->
-            <div class="quiz-actions-toolbar" id="quizActionsToolbar">
-                <div class="quiz-actions-inner">
-                    <button class="quiz-action-btn" id="printQuizBtn">
-                        <i class="fas fa-print"></i> Print Quiz
-                    </button>
-                    <button class="quiz-action-btn" id="shareQuizBtn">
-                        <i class="fas fa-share"></i> Share Quiz
-                    </button>
-                    <button class="quiz-action-btn" id="downloadQuizBtn">
-                        <i class="fas fa-download"></i> Download Quiz
-                    </button>
+
+        <!-- RIGHT COLUMN: THE 3D NEURAL GENERATIVE MATRIX -->
+        <section class="pane right-pane">
+            <canvas id="particleCanvas"></canvas>
+
+            <!-- Radial glow background decoration -->
+            <div class="radial-glow"></div>
+
+            <!-- Rotating HUD overlays -->
+            <div class="hud-label" id="hud-1">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
                 </div>
+                <span class="hud-text">Cryo-State: 15mK</span>
             </div>
             
-            <div class="results-header">
-                <h2 class="results-title">
-                    <i class="fas fa-trophy"></i> Your Quiz is Ready!
-                </h2>
-                <div class="results-actions">
-                    <a href="#" class="action-btn" id="downloadBtn">
-                        <i class="fas fa-download"></i> Download Quiz
-                    </a>
-                    <button class="action-btn" onclick="window.print()">
-                        <i class="fas fa-print"></i> Print Quiz
-                    </button>
-                    <button class="action-btn" id="shareBtn">
-                        <i class="fas fa-share-alt"></i> Share Quiz
-                    </button>
+            <div class="hud-label" id="hud-2">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
                 </div>
+                <span class="hud-text">Coherence: 99.98%</span>
             </div>
             
-            <!-- Questions Container -->
-            <div class="questions-container" id="questionsContainer">
-                <!-- Generated questions will appear here -->
+            <div class="hud-label" id="hud-3">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
+                </div>
+                <span class="hud-text">Synaptic Load: 82.4 GFLOPS</span>
+            </div>
+            
+            <div class="hud-label" id="hud-4">
+                <div class="bracket-corners">
+                    <span class="corner tl"></span>
+                    <span class="corner tr"></span>
+                    <span class="corner bl"></span>
+                    <span class="corner br"></span>
+                </div>
+                <span class="hud-text">Database Sync: Active</span>
             </div>
         </section>
+    </main>
+
+    <!-- SECTIONS BELOW THE HERO -->
+    <div class="scrolling-content">
+        <!-- FEATURES SECTION -->
+        <section id="features" class="page-section">
+            <div class="overline">// SPECIFICATION DATASHEET</div>
+            <h2 class="section-title">Engine Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="feature-num">01 /</div>
+                    <h3 class="feature-title">High-Fidelity Parser</h3>
+                    <p class="feature-desc">Processes complex text formatting, scientific journals, textbook chapters, and multi-column PDFs with zero structure loss.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="feature-num">02 /</div>
+                    <h3 class="feature-title">Gemini AI Synthesis</h3>
+                    <p class="feature-desc">Leverages Gemini 2.5 Flash to automatically construct multiple choice, true/false, and conceptual fill-in-the-blank assessments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="feature-num">03 /</div>
+                    <h3 class="feature-title">Supabase Cloud Sync</h3>
+                    <p class="feature-desc">Maintains secure, stateless synchronization with Supabase PostgreSQL to retrieve previous quiz history and manage telemetry statistics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECURITY & PRIVACY SECTION -->
+        <section id="security" class="page-section">
+            <div class="overline">// PROTOCOL SECURE_LINK</div>
+            <h2 class="section-title">Security & Core Privacy</h2>
+            <div class="security-split">
+                <div class="security-text">
+                    <p>SPLINTR operates on strict stateless security protocols. When a curriculum document is uploaded, it is parsed and processed in memory. All temporary files are instantly destroyed post-synthesis, ensuring zero-latency data footprint preservation.</p>
+                    <p style="margin-top: 1.5rem;">User credentials and quiz archives are stored in encrypted Supabase PostgreSQL vaults, secured by service-level authentication policies. Your data is yours, isolated from external training sets.</p>
+                </div>
+                <div class="security-data-box">
+                    <div class="bracket-corners">
+                        <span class="corner tl"></span>
+                        <span class="corner tr"></span>
+                        <span class="corner bl"></span>
+                        <span class="corner br"></span>
+                    </div>
+                    <div class="sec-stat-row">
+                        <span class="sec-label">ENCRYPTION LEVEL</span>
+                        <span class="sec-value">AES-256</span>
+                    </div>
+                    <div class="sec-stat-row">
+                        <span class="sec-label">DATA RETENTION</span>
+                        <span class="sec-value">0 DAYS (STATELESS)</span>
+                    </div>
+                    <div class="sec-stat-row">
+                        <span class="sec-label">DATABASE SYNC</span>
+                        <span class="sec-value">SUPABASE SECURE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER SECTION -->
+        <footer class="footer-section">
+            <div class="footer-columns">
+                <div class="footer-col brand-col">
+                    <div class="logo" style="margin-bottom: 1.5rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(45deg);">
+                            <rect x="3" y="3" width="18" height="18" />
+                            <rect x="9" y="9" width="6" height="6" fill="currentColor" />
+                        </svg>
+                        <span>SPLINTR</span>
+                    </div>
+                    <p class="footer-desc">Stateless cognitive extraction engine for classroom assessments and neural curriculum synthesis.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">// PLATFORM</h4>
+                    <a href="#" class="footer-link-item tab-trigger" data-tab="landing">Home</a>
+                    <a href="#" class="footer-link-item tab-trigger" data-tab="generator">Generate Quizzes</a>
+                    <a href="#" class="footer-link-item tab-trigger" data-tab="dashboard">Dashboard</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">// TECHNOLOGY</h4>
+                    <a href="https://deepmind.google/technologies/gemini/" target="_blank" class="footer-link-item">Google Gemini 2.5</a>
+                    <a href="https://supabase.com/" target="_blank" class="footer-link-item">Supabase Cloud</a>
+                    <a href="https://www.postgresql.org/" target="_blank" class="footer-link-item">PostgreSQL</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">// SYSTEM STATUS</h4>
+                    <span class="status-indicator"><span class="dot"></span> Online & Operational</span>
+                    <span style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 1rem; display: block;">v3.0.4-LTS</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SPLINTR. All rights reserved. Clinical Brutalist Design.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </footer>
     </div>
-    
-    <!-- Auth Modal -->
+
+    <!-- AUTHENTICATION DIALOG (MODAL) -->
     <div class="modal-overlay" id="authModal">
         <div class="modal">
+            <div class="bracket-corners">
+                <span class="corner tl"></span>
+                <span class="corner tr"></span>
+                <span class="corner bl"></span>
+                <span class="corner br"></span>
+            </div>
             <div class="modal-header">
-                <div class="modal-title"><i class="fas fa-user-shield"></i> Teacher Access</div>
+                <div class="modal-title">
+                    <i class="fas fa-user-shield" style="margin-right: 0.5rem;"></i> Initialize Identity
+                </div>
                 <button class="modal-close" id="authModalClose"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
                 <div class="tabs">
-                    <button class="tab-btn" id="loginTab">Login</button>
+                    <button class="tab-btn active" id="loginTab">Login</button>
                     <button class="tab-btn" id="signupTab">Sign Up</button>
                 </div>
 
-                <form id="loginForm" class="auth-form">
+                <form id="loginForm" class="auth-form active">
                     <div class="form-row">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" class="form-input" placeholder="you@example.com" required>
+                        <label for="loginEmail">// IDENTIFIER (EMAIL)</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="teacher@school.edu" required>
                     </div>
                     <div class="form-row">
-                        <label for="loginPassword">Password</label>
+                        <label for="loginPassword">// CRYPTO-KEY (PASSWORD)</label>
                         <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn-primary"><i class="fas fa-right-to-bracket"></i> Login</button>
-                        <button type="button" class="btn-secondary" id="toSignupBtn">Create account</button>
+                        <button type="submit" class="btn-bracket">
+                            <div class="bracket-corners">
+                                <span class="corner tl"></span>
+                                <span class="corner tr"></span>
+                                <span class="corner bl"></span>
+                                <span class="corner br"></span>
+                            </div>
+                            <span style="position: relative; z-index: 2;">Access Terminal</span>
+                        </button>
+                        <button type="button" class="btn-link" id="toSignupBtn">// New register sequence</button>
                     </div>
                 </form>
 
                 <form id="signupForm" class="auth-form">
                     <div class="form-row">
-                        <label for="signupName">Full Name</label>
-                        <input type="text" id="signupName" class="form-input" placeholder="Your name" required>
+                        <label for="signupName">// OPERATOR NAME</label>
+                        <input type="text" id="signupName" class="form-input" placeholder="Prof. Jane Doe" required>
                     </div>
                     <div class="form-row">
-                        <label for="signupEmail">Email</label>
-                        <input type="email" id="signupEmail" class="form-input" placeholder="you@example.com" required>
+                        <label for="signupEmail">// IDENTIFIER (EMAIL)</label>
+                        <input type="email" id="signupEmail" class="form-input" placeholder="teacher@school.edu" required>
                     </div>
                     <div class="form-row">
-                        <label for="signupPassword">Password</label>
-                        <input type="password" id="signupPassword" class="form-input" placeholder="Create a password" minlength="6" required>
+                        <label for="signupPassword">// CRYPTO-KEY (6+ CHARS)</label>
+                        <input type="password" id="signupPassword" class="form-input" placeholder="••••••••" minlength="6" required>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn-primary"><i class="fas fa-user-plus"></i> Sign Up</button>
-                        <button type="button" class="btn-secondary" id="toLoginBtn">I have an account</button>
+                        <button type="submit" class="btn-bracket">
+                            <div class="bracket-corners">
+                                <span class="corner tl"></span>
+                                <span class="corner tr"></span>
+                                <span class="corner bl"></span>
+                                <span class="corner br"></span>
+                            </div>
+                            <span style="position: relative; z-index: 2;">Create Identity</span>
+                        </button>
+                        <button type="button" class="btn-link" id="toLoginBtn">// Run access sequence</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Loading Screen -->
+    <!-- LOADING SCREEN OVERLAY -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-card">
+            <div class="bracket-corners">
+                <span class="corner tl"></span>
+                <span class="corner tr"></span>
+                <span class="corner bl"></span>
+                <span class="corner br"></span>
+            </div>
             <div class="loading-spinner"></div>
-            <div class="loading-text">Generating Your Quiz...</div>
+            <div class="loading-text">Engaging AI Systems...</div>
             <div class="loading-subtext">
-                Our AI is analyzing your document and creating personalized questions for your students
+                Gemini is parsing files and writing university-grade questions
             </div>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
         </div>
     </div>
-    
+
+    <!-- MAIN JAVA SCRIPT EXECUTION -->
     <script>
+        // ----------------------------------------------------
+        // 1. GENERATIVE ART ENGINES (WebGL-like Projected Canvas)
+        // ----------------------------------------------------
+        class NeuralMatrix {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.particles = [];
+                this.nodes = [];
+                this.rotationX = 0.0012;
+                this.rotationY = 0.0018;
+                this.angleX = 0;
+                this.angleY = 0;
+                this.width = 0;
+                this.height = 0;
+                
+                // HUD target nodes in projected 3D space
+                this.hudTargets = [
+                    { id: 'hud-1', nodeIdx: 15, px: 0, py: 0 },
+                    { id: 'hud-2', nodeIdx: 52, px: 0, py: 0 },
+                    { id: 'hud-3', nodeIdx: 98, px: 0, py: 0 },
+                    { id: 'hud-4', nodeIdx: 135, px: 0, py: 0 }
+                ];
+
+                this.init();
+                window.addEventListener('resize', () => this.resize());
+            }
+            
+            init() {
+                this.resize();
+                
+                // Generate 3D nodes (synapses) forming an asymmetrical neural matrix structure
+                const nodeCount = 160;
+                for (let i = 0; i < nodeCount; i++) {
+                    const isLeft = Math.random() > 0.5;
+                    const centerX = isLeft ? -45 : 45;
+                    const centerY = (Math.random() - 0.5) * 70;
+                    const centerZ = (Math.random() - 0.5) * 50;
+                    
+                    const theta = Math.random() * Math.PI * 2;
+                    const phi = Math.acos((Math.random() * 2) - 1);
+                    const radius = 35 + Math.random() * 40;
+                    
+                    this.nodes.push({
+                        x: centerX + radius * Math.sin(phi) * Math.cos(theta),
+                        y: centerY + radius * Math.sin(phi) * Math.sin(theta),
+                        z: centerZ + radius * Math.cos(phi),
+                        connections: []
+                    });
+                }
+                
+                // Generate neural linkages
+                for (let i = 0; i < this.nodes.length; i++) {
+                    const node = this.nodes[i];
+                    const sorted = this.nodes
+                        .map((n, idx) => ({ idx, dist: this.dist(node, n) }))
+                        .filter(item => item.idx !== i)
+                        .sort((a, b) => a.dist - b.dist);
+                    
+                    // Connect to 2 nearest neighbors
+                    for (let c = 0; c < 2; c++) {
+                        if (sorted[c]) {
+                            node.connections.push(sorted[c].idx);
+                        }
+                    }
+                }
+                
+                // Initialize moving fiber-optic particles
+                const particleCount = 650;
+                for (let i = 0; i < particleCount; i++) {
+                    const startNodeIdx = Math.floor(Math.random() * this.nodes.length);
+                    const node = this.nodes[startNodeIdx];
+                    const nextNodeIdx = node.connections[Math.floor(Math.random() * node.connections.length)] || startNodeIdx;
+                    
+                    this.particles.push({
+                        currentNode: startNodeIdx,
+                        targetNode: nextNodeIdx,
+                        progress: Math.random(),
+                        speed: 0.006 + Math.random() * 0.010,
+                        colorType: Math.floor(Math.random() * 3), // Cyan, Ultraviolet, Pink
+                        trail: [] // motion blur coordinates
+                    });
+                }
+            }
+            
+            dist(n1, n2) {
+                return Math.sqrt((n1.x - n2.x)**2 + (n1.y - n2.y)**2 + (n1.z - n2.z)**2);
+            }
+            
+            resize() {
+                const rect = this.canvas.parentNode.getBoundingClientRect();
+                this.width = rect.width;
+                this.height = rect.height;
+                this.canvas.width = this.width * window.devicePixelRatio;
+                this.canvas.height = this.height * window.devicePixelRatio;
+                this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            }
+            
+            draw() {
+                // Clear background matching active theme
+                let clearColor = 'rgba(234, 234, 239, 0.18)';
+                let bgLineColor = 'rgba(26, 26, 46, 0.025)';
+                let hudDotColor = '#1A1A2E';
+                let hudRingColor = 'rgba(26, 26, 46, 0.25)';
+                
+                const isDarkCode = document.body.classList.contains('theme-dark-code');
+                const isDark = document.body.classList.contains('theme-dark');
+                
+                if (isDarkCode) {
+                    clearColor = 'rgba(0, 0, 0, 0.18)';
+                    bgLineColor = 'rgba(0, 255, 102, 0.05)';
+                    hudDotColor = '#00FF66';
+                    hudRingColor = 'rgba(0, 255, 102, 0.4)';
+                } else if (isDark) {
+                    clearColor = 'rgba(10, 10, 20, 0.18)';
+                    bgLineColor = 'rgba(255, 255, 255, 0.04)';
+                    hudDotColor = '#E2E2E9';
+                    hudRingColor = 'rgba(255, 255, 255, 0.3)';
+                }
+                
+                this.ctx.fillStyle = clearColor;
+                this.ctx.fillRect(0, 0, this.width, this.height);
+                
+                this.angleX += this.rotationX;
+                this.angleY += this.rotationY;
+                
+                const cosX = Math.cos(this.angleX);
+                const sinX = Math.sin(this.angleX);
+                const cosY = Math.cos(this.angleY);
+                const sinY = Math.sin(this.angleY);
+                
+                // 3D projection computation
+                const projectedNodes = this.nodes.map(node => {
+                    let x1 = node.x * cosY - node.z * sinY;
+                    let z1 = node.z * cosY + node.x * sinY;
+                    
+                    let y2 = node.y * cosX - z1 * sinX;
+                    let z2 = z1 * cosX + node.y * sinX;
+                    
+                    const fov = 380;
+                    const scale = fov / (fov + z2);
+                    
+                    return {
+                        x: this.width / 2 + x1 * scale * 2.3,
+                        y: this.height / 2 + y2 * scale * 2.3,
+                        z: z2,
+                        scale: scale
+                    };
+                });
+                
+                // Render faint background connections
+                this.ctx.lineWidth = 0.5;
+                this.ctx.strokeStyle = bgLineColor;
+                for (let i = 0; i < this.nodes.length; i++) {
+                    const p1 = projectedNodes[i];
+                    this.nodes[i].connections.forEach(targetIdx => {
+                        const p2 = projectedNodes[targetIdx];
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(p1.x, p1.y);
+                        this.ctx.lineTo(p2.x, p2.y);
+                        this.ctx.stroke();
+                    });
+                }
+                
+                // Update and render flowing lines
+                this.particles.forEach(p => {
+                    p.progress += p.speed;
+                    if (p.progress >= 1.0) {
+                        p.progress = 0.0;
+                        p.currentNode = p.targetNode;
+                        const node = this.nodes[p.currentNode];
+                        p.targetNode = node.connections[Math.floor(Math.random() * node.connections.length)] || p.currentNode;
+                    }
+                    
+                    const startNode = projectedNodes[p.currentNode];
+                    const endNode = projectedNodes[p.targetNode];
+                    
+                    const x = startNode.x + (endNode.x - startNode.x) * p.progress;
+                    const y = startNode.y + (endNode.y - startNode.y) * p.progress;
+                    const z = startNode.z + (endNode.z - startNode.z) * p.progress;
+                    
+                    p.trail.push({ x, y });
+                    if (p.trail.length > 7) {
+                        p.trail.shift();
+                    }
+                    
+                    let color = '';
+                    if (isDarkCode) {
+                        // Green matrix code aesthetics
+                        if (p.colorType === 0) color = 'rgba(0, 255, 102, 0.8)';
+                        else if (p.colorType === 1) color = 'rgba(0, 180, 70, 0.7)';
+                        else color = 'rgba(50, 255, 150, 0.8)';
+                    } else {
+                        if (p.colorType === 0) color = 'rgba(0, 210, 255, 0.8)';      // electric cyan
+                        else if (p.colorType === 1) color = 'rgba(255, 20, 147, 0.7)';   // synaptic pink
+                        else color = 'rgba(138, 43, 226, 0.8)';                          // ultra-violet
+                    }
+                    
+                    if (p.trail.length > 1) {
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(p.trail[0].x, p.trail[0].y);
+                        for (let i = 1; i < p.trail.length; i++) {
+                            this.ctx.lineTo(p.trail[i].x, p.trail[i].y);
+                        }
+                        
+                        const depthScale = (220 - z) / 220;
+                        this.ctx.lineWidth = Math.max(0.6, 1.6 * depthScale);
+                        this.ctx.strokeStyle = color;
+                        this.ctx.stroke();
+                    }
+                });
+                
+                // Draw HUD pointer anchors
+                this.hudTargets.forEach(hud => {
+                    const nodeProj = projectedNodes[hud.nodeIdx];
+                    hud.px = nodeProj.x;
+                    hud.py = nodeProj.y;
+                    
+                    this.ctx.beginPath();
+                    this.ctx.arc(hud.px, hud.py, 3, 0, Math.PI * 2);
+                    this.ctx.fillStyle = hudDotColor;
+                    this.ctx.fill();
+                    
+                    this.ctx.beginPath();
+                    this.ctx.arc(hud.px, hud.py, 7, 0, Math.PI * 2);
+                    this.ctx.strokeStyle = hudRingColor;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.stroke();
+                });
+                
+                this.updateHUDLines();
+            }
+            
+            updateHUDLines() {
+                let hudLineColor = 'rgba(26, 26, 46, 0.12)';
+                const isDarkCode = document.body.classList.contains('theme-dark-code');
+                const isDark = document.body.classList.contains('theme-dark');
+                if (isDarkCode) {
+                    hudLineColor = 'rgba(0, 255, 102, 0.18)';
+                } else if (isDark) {
+                    hudLineColor = 'rgba(255, 255, 255, 0.15)';
+                }
+                
+                this.hudTargets.forEach(hud => {
+                    const el = document.getElementById(hud.id);
+                    if (!el) return;
+                    
+                    const labelRect = el.getBoundingClientRect();
+                    const parentRect = this.canvas.parentNode.getBoundingClientRect();
+                    
+                    const labelX = (labelRect.left + labelRect.right) / 2 - parentRect.left;
+                    const labelY = (labelRect.top + labelRect.bottom) / 2 - parentRect.top;
+                    
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(labelX, labelY);
+                    
+                    // Angle geometric pivot alignment
+                    const pivotX = labelX + (hud.px > labelX ? 35 : -35);
+                    this.ctx.lineTo(pivotX, labelY);
+                    this.ctx.lineTo(hud.px, hud.py);
+                    
+                    this.ctx.strokeStyle = hudLineColor;
+                    this.ctx.lineWidth = 0.8;
+                    this.ctx.stroke();
+                });
+            }
+        }
+
+        // Draw quantum circuit blueprint once on the bottom left background
+        function drawQuantumBlueprint() {
+            const canvas = document.getElementById('blueprintCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            const rect = canvas.parentNode.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            
+            ctx.clearRect(0, 0, rect.width, rect.height);
+            
+            let strokeColor = 'rgba(26, 26, 46, 0.07)';
+            let fillColor = 'rgba(26, 26, 46, 0.02)';
+            let textColor = 'rgba(26, 26, 46, 0.45)';
+            let controlDotColor = 'rgba(26, 26, 46, 0.25)';
+            
+            if (document.body.classList.contains('theme-dark-code')) {
+                strokeColor = 'rgba(0, 255, 102, 0.15)';
+                fillColor = 'rgba(0, 255, 102, 0.03)';
+                textColor = 'rgba(0, 255, 102, 0.6)';
+                controlDotColor = 'rgba(0, 255, 102, 0.4)';
+            } else if (document.body.classList.contains('theme-dark')) {
+                strokeColor = 'rgba(255, 255, 255, 0.08)';
+                fillColor = 'rgba(255, 255, 255, 0.02)';
+                textColor = 'rgba(255, 255, 255, 0.5)';
+                controlDotColor = 'rgba(255, 255, 255, 0.3)';
+            }
+            
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = fillColor;
+            ctx.lineWidth = 1;
+            ctx.font = '8px "JetBrains Mono", monospace';
+            
+            // Wires on a 30-degree isometric grid
+            const wires = [
+                { sx: 40, sy: rect.height - 220 },
+                { sx: 40, sy: rect.height - 180 },
+                { sx: 40, sy: rect.height - 140 }
+            ];
+            
+            wires.forEach((wire, wireIdx) => {
+                ctx.beginPath();
+                ctx.moveTo(wire.sx, wire.sy);
+                const length = 320;
+                const ex = wire.sx + length;
+                const ey = wire.sy + length * 0.577;
+                ctx.lineTo(ex, ey);
+                ctx.stroke();
+                
+                // Draw gate boxes along coordinates
+                const gateOffsets = [70, 160, 240];
+                gateOffsets.forEach((offset, gateIdx) => {
+                    const gx = wire.sx + offset;
+                    const gy = wire.sy + offset * 0.577;
+                    
+                    ctx.strokeRect(gx - 10, gy - 10, 20, 20);
+                    ctx.fillRect(gx - 10, gy - 10, 20, 20);
+                    
+                    const labels = [['H', 'Rx', 'CNOT'], ['Ry', 'H', 'Z'], ['X', 'Measure', 'S']];
+                    const label = labels[wireIdx][gateIdx];
+                    ctx.fillStyle = textColor;
+                    ctx.fillText(label, gx - 8, gy + 3);
+                    ctx.fillStyle = fillColor;
+                });
+            });
+            
+            // Connect vertical CNOT control lines
+            const w0x = wires[0].sx + 160;
+            const w0y = wires[0].sy + 160 * 0.577;
+            const w1x = wires[1].sx + 160;
+            const w1y = wires[1].sy + 160 * 0.577;
+            
+            ctx.beginPath();
+            ctx.moveTo(w0x, w0y);
+            ctx.lineTo(w1x, w1y);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.arc(w0x, w0y, 3, 0, Math.PI * 2);
+            ctx.fillStyle = controlDotColor;
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(w1x, w1y, 4, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        // ----------------------------------------------------
+        // 2. BACKEND & WEB CLIENT CODE (Core Quiz Generator)
+        // ----------------------------------------------------
         class QuizGenerator {
             constructor() {
                 this.currentResultFile = null;
-                this.selectedMode = 'mcq';  // Changed default from 'mixed' to 'mcq'
+                this.selectedMode = 'mcq';
                 this.isProcessing = false;
-                this.theme = 'light';
                 this.user = null;
                 this.initializeEventListeners();
-                this.initializeTheme();
                 this.checkAuth();
             }
             
             initializeEventListeners() {
-                // Theme toggle
-                document.getElementById('themeToggle').addEventListener('click', () => {
-                    this.toggleTheme();
+                // Initialize custom tab trigger clicks
+                document.querySelectorAll('.tab-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.switchTab(trigger.dataset.tab);
+                    });
+                });
+
+                document.getElementById('startBtn').addEventListener('click', () => {
+                    this.switchTab('generator');
                 });
                 
-                // Auth button
+                document.getElementById('landingLearnMoreBtn').addEventListener('click', () => {
+                    this.switchTab('generator');
+                });
+
+                // Scroll trigger smooth scroll bindings
+                document.querySelectorAll('.scroll-trigger').forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = trigger.getAttribute('href');
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+
+                // Authentication button (CTA)
                 const authBtn = document.getElementById('authBtn');
                 authBtn.addEventListener('click', () => {
                     if (this.user) {
@@ -1256,7 +2309,7 @@
                     }
                 });
 
-                // Auth modal behavior
+                // Auth dialog controls
                 document.getElementById('authModalClose').addEventListener('click', () => this.closeAuthModal());
                 document.getElementById('loginTab').addEventListener('click', () => this.switchAuthTab('login'));
                 document.getElementById('signupTab').addEventListener('click', () => this.switchAuthTab('signup'));
@@ -1265,7 +2318,7 @@
                 document.getElementById('loginForm').addEventListener('submit', (e) => { e.preventDefault(); this.login(); });
                 document.getElementById('signupForm').addEventListener('submit', (e) => { e.preventDefault(); this.signup(); });
                 
-                // File upload handling
+                // File upload drag & drop handlers
                 const uploadZone = document.getElementById('uploadZone');
                 const fileInput = document.getElementById('pdfFile');
                 const uploadText = document.getElementById('uploadText');
@@ -1278,7 +2331,6 @@
                     this.handleFileSelection(e.target.files[0]);
                 });
                 
-                // Drag and drop
                 uploadZone.addEventListener('dragover', (e) => {
                     e.preventDefault();
                     if (!this.isProcessing) uploadZone.classList.add('dragover');
@@ -1296,70 +2348,60 @@
                     }
                 });
                 
-                // Mode selection
-                document.querySelectorAll('.mode-card').forEach(card => {
-                    card.addEventListener('click', () => {
-                        this.selectMode(card.dataset.mode);
+                // Mode selector buttons (MCQ, True/False, Fill Blank)
+                document.querySelectorAll('.mode-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        this.selectedMode = btn.dataset.mode;
                     });
                 });
                 
-                // Form submission
+                // Quiz Generation Submission
                 document.getElementById('quizForm').addEventListener('submit', (e) => {
                     e.preventDefault();
                     this.generateQuiz();
                 });
                 
-                // Action buttons
-                document.getElementById('downloadBtn').addEventListener('click', () => {
+                // Toolbar JSON downloader
+                document.getElementById('downloadBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
                     this.downloadQuiz();
                 });
-                
-                document.getElementById('shareBtn').addEventListener('click', () => {
-                    this.shareQuiz();
-                });
-                
-                // Set default mode
-                this.selectMode('mcq');  // Changed default from 'mixed' to 'mcq'
             }
-            
-            initializeTheme() {
-                const savedTheme = localStorage.getItem('quizgo-theme') || 'light';
-                this.setTheme(savedTheme);
-            }
-            
-            toggleTheme() {
-                const newTheme = this.theme === 'light' ? 'dark' : 'light';
-                this.setTheme(newTheme);
-            }
-            
-            setTheme(theme) {
-                this.theme = theme;
-                document.body.setAttribute('data-theme', theme);
-                localStorage.setItem('quizgo-theme', theme);
-                
-                const themeBtn = document.getElementById('themeToggle');
-                const icon = themeBtn.querySelector('i');
-                const text = themeBtn.querySelector('span');
-                
-                if (theme === 'dark') {
-                    icon.className = 'fas fa-sun';
-                    text.textContent = 'Light Mode';
-                } else {
-                    icon.className = 'fas fa-moon';
-                    text.textContent = 'Dark Mode';
+
+            switchTab(tabId) {
+                if ((tabId === 'generator' || tabId === 'dashboard') && !this.user) {
+                    this.showMessage('Initialization Required', 'Please authenticate to access this terminal.', 'warning');
+                    this.openAuthModal('login');
+                    return;
                 }
-            }
-            
-            selectMode(mode) {
-                this.selectedMode = mode;
                 
-                // Update UI
-                document.querySelectorAll('.mode-card').forEach(card => {
-                    card.classList.remove('selected');
-                });
-                document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
+                if (tabId === 'results' && !this.currentResultFile) {
+                    this.showMessage('No Active Quiz', 'Please generate or load a quiz first.', 'warning');
+                    return;
+                }
                 
-                this.showMessage('Format Selected', `${this.getModeDisplayName(mode)} format activated!`, 'success');
+                document.querySelectorAll('.tab-trigger').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                
+                if (tabId === 'results') {
+                    document.body.classList.add('results-active');
+                } else {
+                    document.body.classList.remove('results-active');
+                }
+                
+                const trigger = document.querySelector(`.tab-trigger[data-tab="${tabId}"]`);
+                if (trigger) trigger.classList.add('active');
+                
+                const content = document.getElementById(`tab-${tabId}`);
+                if (content) {
+                    content.classList.add('active');
+                    document.querySelector('.left-pane').scrollTop = 0;
+                    
+                    // Smoothly scroll page back to the top viewport
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             }
 
             async checkAuth() {
@@ -1368,19 +2410,23 @@
                     const data = await res.json();
                     this.user = data.authenticated ? data.user : null;
                     this.updateAuthUI();
+                    if (this.user) {
+                        this.loadStats();
+                    }
                 } catch (_) {}
             }
 
             updateAuthUI() {
                 const authBtn = document.getElementById('authBtn');
-                const icon = authBtn.querySelector('i');
-                const text = authBtn.querySelector('span');
+                
                 if (this.user) {
-                    icon.className = 'fas fa-right-from-bracket';
-                    text.textContent = `Logout (${this.user.name || this.user.email})`;
+                    authBtn.textContent = `Logout (${this.user.name || this.user.email.split('@')[0]})`;
+                    document.getElementById('navLinkGen').style.opacity = '1';
+                    document.getElementById('navLinkDash').style.opacity = '1';
                 } else {
-                    icon.className = 'fas fa-user-circle';
-                    text.textContent = 'Teacher Login';
+                    authBtn.textContent = 'Login';
+                    document.getElementById('navLinkGen').style.opacity = '0.5';
+                    document.getElementById('navLinkDash').style.opacity = '0.5';
                 }
             }
 
@@ -1405,15 +2451,21 @@
                 try {
                     const email = (document.getElementById('loginEmail').value || '').trim();
                     const password = (document.getElementById('loginPassword').value || '').trim();
-                    const res = await fetch('/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
+                    const res = await fetch('/auth/login', { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'application/json' }, 
+                        body: JSON.stringify({ email, password }) 
+                    });
                     const data = await res.json();
                     if (!res.ok) throw new Error(data.error || 'Login failed');
                     this.user = data.user;
                     this.updateAuthUI();
                     this.closeAuthModal();
-                    this.showMessage('Logged In', `Welcome back, ${this.user.name || this.user.email}!`, 'success');
+                    this.loadStats();
+                    this.switchTab('dashboard');
+                    this.showMessage('Access Granted', `Welcome back, ${this.user.name || this.user.email}!`, 'success');
                 } catch (err) {
-                    this.showMessage('Login Failed', err.message, 'error');
+                    this.showMessage('Terminal Error', err.message, 'error');
                 }
             }
 
@@ -1422,15 +2474,21 @@
                     const name = (document.getElementById('signupName').value || '').trim();
                     const email = (document.getElementById('signupEmail').value || '').trim();
                     const password = (document.getElementById('signupPassword').value || '').trim();
-                    const res = await fetch('/auth/signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, password }) });
+                    const res = await fetch('/auth/signup', { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'application/json' }, 
+                        body: JSON.stringify({ name, email, password }) 
+                    });
                     const data = await res.json();
                     if (!res.ok) throw new Error(data.error || 'Sign up failed');
                     this.user = data.user;
                     this.updateAuthUI();
                     this.closeAuthModal();
-                    this.showMessage('Account Created', `Welcome, ${this.user.name || this.user.email}!`, 'success');
+                    this.loadStats();
+                    this.switchTab('dashboard');
+                    this.showMessage('Identity Registered', `Logged in as ${this.user.name || this.user.email}!`, 'success');
                 } catch (err) {
-                    this.showMessage('Sign Up Failed', err.message, 'error');
+                    this.showMessage('Registration Fails', err.message, 'error');
                 }
             }
 
@@ -1441,19 +2499,21 @@
                     if (!data.success) throw new Error('Logout failed');
                     this.user = null;
                     this.updateAuthUI();
-                    this.showMessage('Logged Out', 'You have been logged out.', 'success');
+                    this.showMessage('Disconnected', 'Secure terminal closed.', 'success');
+                    this.switchTab('landing');
                 } catch (err) {
-                    this.showMessage('Logout Failed', err.message, 'error');
+                    this.showMessage('Terminal Error', err.message, 'error');
                 }
             }
             
             getModeDisplayName(mode) {
                 const names = {
                     'mcq': 'Multiple Choice',
-                    'true_false': 'True or False',
-                    'fill_blank': 'Fill in the Blank'
+                    'true_false': 'True/False',
+                    'fill_blank': 'Fill In The Blank',
+                    'essay': 'Intellectual Essay'
                 };
-                return names[mode] || 'Multiple Choice';
+                return names[mode] || 'MCQ';
             }
             
             handleFileSelection(file) {
@@ -1464,27 +2524,20 @@
                 
                 uploadZone.classList.remove('file-selected');
                 
-                // Validate file
                 if (file.type !== 'application/pdf') {
-                    this.showMessage('Invalid File', 'Only PDF documents are accepted!', 'error');
+                    this.showMessage('Type Rejected', 'File extension rejected. Deploy PDF.', 'error');
                     return;
                 }
                 
                 if (file.size > 16 * 1024 * 1024) {
-                    const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-                    this.showMessage('File Too Large', `File is ${sizeMB}MB. Maximum 16MB allowed!`, 'error');
+                    this.showMessage('Size Exceeded', 'Buffer limit exceeded. Max 16MB.', 'error');
                     return;
                 }
                 
-                // File accepted
                 const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-                uploadText.innerHTML = `
-                    <i class="fas fa-file-pdf" style="color: var(--success-color);"></i> 
-                    ${file.name} <small>(${sizeMB}MB)</small>
-                `;
+                uploadText.innerHTML = `<i class="fa-solid fa-file-circle-check" style="color: #10B981; margin-right: 0.5rem;"></i> ${file.name} (${sizeMB}MB)`;
                 uploadZone.classList.add('file-selected');
-                
-                this.showMessage('Document Ready', `"${file.name}" is ready for quiz generation!`, 'success');
+                this.showMessage('Buffer Loaded', 'Document cached, ready for deployment.', 'success');
             }
             
             async generateQuiz() {
@@ -1493,19 +2546,13 @@
                 const fileInput = document.getElementById('pdfFile');
                 const numQuestions = parseInt(document.getElementById('numQuestions').value);
                 
-                // Validate
                 if (!this.user) {
-                    this.showMessage('Login Required', 'Please login to generate a quiz.', 'warning');
+                    this.showMessage('Identity Required', 'Authenticate to generate quizzes.', 'warning');
                     this.openAuthModal('login');
                     return;
                 }
                 if (!fileInput.files || fileInput.files.length === 0) {
-                    this.showMessage('No Document', 'Please upload a PDF document first!', 'error');
-                    return;
-                }
-                
-                if (numQuestions < 4 || numQuestions > 20) {
-                    this.showMessage('Invalid Question Count', 'Please select 4-20 questions for optimal quiz length!', 'error');
+                    this.showMessage('Buffer Empty', 'Please provide a PDF source file.', 'error');
                     return;
                 }
                 
@@ -1519,11 +2566,6 @@
                     formData.append('difficulty', document.getElementById('difficulty').value);
                     formData.append('question_types', this.selectedMode);
                     
-                    console.log('🚀 Generating Quiz...');
-                    console.log('📄 Document:', fileInput.files[0].name);
-                    console.log('📝 Format:', this.selectedMode);
-                    console.log('📊 Questions:', numQuestions);
-                    
                     const response = await fetch('/upload', {
                         method: 'POST',
                         body: formData
@@ -1531,24 +2573,31 @@
                     
                     if (response.status === 401) {
                         this.openAuthModal('login');
-                        throw new Error('Authentication required');
+                        throw new Error('Authentication expired');
                     }
                     if (!response.ok) {
-                        throw new Error(`Generation Failed: ${response.status} ${response.statusText}`);
+                        let errorMsg = 'Synthesis Failed. Verify PDF contents.';
+                        try {
+                            const errData = await response.json();
+                            errorMsg = errData.error || errorMsg;
+                        } catch (e) {}
+                        throw new Error(errorMsg);
                     }
                     
                     const result = await response.json();
+
                     
                     if (result.success) {
                         this.displayQuizResults(result.quiz_data, result.question_types);
                         this.currentResultFile = result.result_file;
-                        this.showMessage('Quiz Generated!', '🎉 Your professional quiz is ready!', 'success');
+                        this.loadStats();
+                        this.showMessage('Synthesis Completed', '🎉 Cognitive structures successfully generated!', 'success');
                     } else {
                         throw new Error(result.error);
                     }
                 } catch (error) {
-                    console.error('❌ Generation failed:', error);
-                    this.showMessage('Generation Failed', error.message, 'error');
+                    console.error(error);
+                    this.showMessage('Extraction Failed', error.message, 'error');
                 } finally {
                     this.isProcessing = false;
                     this.hideLoading();
@@ -1566,9 +2615,7 @@
                     });
                 }
                 
-                document.getElementById('resultsSection').style.display = 'block';
-                document.getElementById('quizActionsToolbar').style.display = 'block';
-                document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+                this.switchTab('results');
             }
             
             createQuestionCard(question, number) {
@@ -1576,30 +2623,25 @@
                 card.className = 'question-card';
                 
                 const typeClass = question.type || 'mcq';
-                const typeName = {
-                    'mcq': 'Multiple Choice',
-                    'true_false': 'True or False',
-                    'fill_blank': 'Fill in the Blank',
-                    'essay': 'Essay Question'
-                }[typeClass];
+                const typeName = this.getModeDisplayName(typeClass);
                 
                 let contentHtml = '';
                 
                 if (typeClass === 'fill_blank') {
                     const questionText = question.question.replace(/_{3,}/g, 
-                        '<span style="background: var(--warning-color); color: white; padding: 0.3rem 1rem; border-radius: 6px; margin: 0 0.3rem;">_____</span>');
+                        '<span style="background: var(--text-primary); color: #F0F0F2; padding: 0.2rem 0.8rem; font-weight:700;">_____</span>');
                     contentHtml = `
                         <div class="question-text">${questionText}</div>
-                        <div style="background: rgba(245, 158, 11, 0.1); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--warning-color); margin: 1rem 0;">
-                            <strong><i class="fas fa-lightbulb"></i> Instructions:</strong> Students should fill in the missing information in the blanks above.
+                        <div style="background: rgba(26, 26, 46, 0.02); padding: 1rem; border-left: 2px solid var(--text-primary); margin: 1rem 0; font-size: 0.8rem;">
+                            <strong>Instruction:</strong> Complete the missing conceptual expression highlighted above.
                         </div>
                     `;
                 } else if (typeClass === 'essay') {
                     contentHtml = `
                         <div class="question-text">${question.question}</div>
-                        <div style="background: rgba(107, 114, 128, 0.1); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--text-secondary); margin: 1rem 0;">
-                            <strong><i class="fas fa-edit"></i> Essay Guidelines:</strong>
-                            <div style="margin-top: 1rem; line-height: 1.8;">${question.correct_answer}</div>
+                        <div style="background: rgba(26, 26, 46, 0.02); padding: 1rem; border-left: 2px solid var(--text-secondary); margin: 1rem 0; font-size: 0.8rem;">
+                            <strong>Evaluation Guidelines:</strong>
+                            <div style="margin-top: 0.5rem; line-height: 1.6; color: var(--text-secondary);">${question.correct_answer}</div>
                         </div>
                     `;
                 } else {
@@ -1615,24 +2657,18 @@
                 
                 card.innerHTML = `
                     <div class="question-header">
-                        <div class="question-number">
-                            <i class="fas fa-question-circle"></i> Question ${number}
-                        </div>
-                        <div class="question-type-badge ${typeClass}">${typeName}</div>
+                        <div class="question-number">// ITEM ${number}</div>
+                        <div class="question-type-badge">${typeName}</div>
                     </div>
                     <div class="question-content">
                         ${contentHtml}
                         <div class="answer-section">
-                            <div class="answer-label">
-                                <i class="fas fa-check-circle"></i> Correct Answer
-                            </div>
-                            <div>${question.correct_answer}</div>
+                            <div class="answer-label"><i class="fas fa-key"></i> Solution Key</div>
+                            <div style="color: var(--text-primary); font-weight: 600; font-size: 0.85rem;">${question.correct_answer}</div>
                         </div>
                         <div class="explanation-section">
-                            <div class="explanation-label">
-                                <i class="fas fa-info-circle"></i> Teaching Notes
-                            </div>
-                            <div>${question.explanation}</div>
+                            <div class="explanation-label"><i class="fas fa-brain"></i> Educational Debriefing</div>
+                            <div style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.6;">${question.explanation}</div>
                         </div>
                     </div>
                 `;
@@ -1653,40 +2689,90 @@
             downloadQuiz() {
                 if (this.currentResultFile) {
                     window.open(`/download/${this.currentResultFile}`, '_blank');
-                    this.showMessage('Quiz Downloaded', '📥 Your quiz file has been downloaded!', 'success');
+                    this.showMessage('Download Initialized', 'Fetching package archives...', 'success');
                 } else {
-                    this.showMessage('No Quiz Available', '❌ Please generate a quiz first', 'error');
+                    this.showMessage('Buffer Empty', 'Generate or select a quiz context first.', 'error');
                 }
             }
-            
-            shareQuiz() {
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'QuizGo.com Quiz',
-                        text: 'Check out this quiz I created with QuizGo.com!',
-                        url: window.location.href
-                    }).then(() => {
-                        this.showMessage('Quiz Shared', '🎉 Quiz link shared successfully!', 'success');
-                    }).catch(() => {
-                        this.fallbackShare();
-                    });
-                } else {
-                    this.fallbackShare();
+
+            async loadStats() {
+                if (!this.user) return;
+                try {
+                    const res = await fetch('/api/battle-stats');
+                    if (!res.ok) return;
+                    const stats = await res.json();
+                    
+                    const totalBattlesEl = document.getElementById('totalBattlesStat');
+                    if (totalBattlesEl) totalBattlesEl.textContent = stats.total_battles;
+                    
+                    const recentList = document.getElementById('recentBattlesList');
+                    if (recentList && stats.recent_battles) {
+                        recentList.innerHTML = '';
+                        if (stats.recent_battles.length === 0) {
+                            recentList.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 2rem;">Archive records empty.</div>';
+                        } else {
+                            stats.recent_battles.forEach(battle => {
+                                const row = document.createElement('div');
+                                row.className = 'recent-battle-item';
+                                row.innerHTML = `
+                                    <div class="bracket-corners">
+                                        <span class="corner tl"></span>
+                                        <span class="corner tr"></span>
+                                        <span class="corner bl"></span>
+                                        <span class="corner br"></span>
+                                    </div>
+                                    <div class="battle-info">
+                                        <div style="font-weight: 700; color: var(--text-primary); text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-size: 0.85rem;">
+                                            <i class="far fa-file-pdf" style="margin-right: 0.35rem;"></i>
+                                            ${battle.battle_id}
+                                        </div>
+                                        <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                            LEVEL: ${battle.difficulty.toUpperCase()} | MODE: ${this.getModeDisplayName(battle.battle_mode).toUpperCase()}
+                                        </div>
+                                    </div>
+                                    <div class="battle-actions" style="display: flex; gap: 0.4rem; flex-shrink: 0;">
+                                        <button class="action-btn-sm view-btn" data-id="${battle.battle_id}">
+                                            View
+                                        </button>
+                                        <a href="/download/${battle.battle_id}" class="action-btn-sm" download>
+                                            Get
+                                        </a>
+                                    </div>
+                                `;
+                                
+                                row.querySelector('.view-btn').addEventListener('click', async () => {
+                                    await this.loadQuizById(battle.battle_id);
+                                });
+                                
+                                recentList.appendChild(row);
+                            });
+                        }
+                    }
+                } catch (err) {
+                    console.error("Failed to load statistics:", err);
                 }
             }
-            
-            fallbackShare() {
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(window.location.href).then(() => {
-                        this.showMessage('Link Copied', '📋 Quiz link copied to clipboard!', 'success');
-                    }).catch(() => {
-                        this.showMessage('Share Failed', 'Unable to share quiz link', 'error');
-                    });
+
+            async loadQuizById(filename) {
+                this.isProcessing = true;
+                this.showLoading();
+                try {
+                    const res = await fetch(`/download/${filename}`);
+                    if (!res.ok) throw new Error('Failed to retrieve quiz');
+                    const archive = await res.json();
+                    
+                    this.displayQuizResults(archive.battle_data, archive.battle_parameters.question_formation);
+                    this.currentResultFile = filename;
+                    this.showMessage('Context Loaded', '🎉 Quiz structure loaded into viewer!', 'success');
+                } catch (err) {
+                    this.showMessage('Fetch Failure', err.message, 'error');
+                } finally {
+                    this.isProcessing = false;
+                    this.hideLoading();
                 }
             }
             
             showMessage(title, description, type) {
-                // Remove existing messages
                 document.querySelectorAll('.message').forEach(msg => msg.remove());
                 
                 const message = document.createElement('div');
@@ -1699,40 +2785,38 @@
                 };
                 
                 message.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <i class="fas fa-${icons[type]}" style="font-size: 1.5rem;"></i>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-${icons[type]}" style="font-size: 1.25rem;"></i>
                         <div>
-                            <div style="font-weight: 700; margin-bottom: 0.3rem;">${title}</div>
-                            <div style="opacity: 0.9; font-size: 0.9rem;">${description}</div>
+                            <div style="font-weight: 700; margin-bottom: 0.1rem; color: var(--text-primary); text-transform: uppercase;">${title}</div>
+                            <div style="font-size: 0.7rem; color: var(--text-secondary);">${description}</div>
                         </div>
                     </div>
                 `;
                 
                 document.body.appendChild(message);
                 
-                setTimeout(() => message.classList.add('show'), 100);
+                setTimeout(() => message.classList.add('show'), 50);
                 setTimeout(() => {
                     message.classList.remove('show');
-                    setTimeout(() => message.remove(), 500);
-                }, 5000);
+                    setTimeout(() => message.remove(), 400);
+                }, 4000);
             }
         }
         
-        // Initialize QuizGo Actions
+        // Redesigned offline HTML quiz exporter
         function initializeQuizActions() {
             const printBtn = document.getElementById('printQuizBtn');
             const shareBtn = document.getElementById('shareQuizBtn');
             const downloadBtn = document.getElementById('downloadQuizBtn');
             
-            // Print Quiz
             printBtn.addEventListener('click', () => {
                 window.print();
             });
             
-            // Share Quiz
             shareBtn.addEventListener('click', async () => {
-                const title = 'QuizGo.com Professional Quiz';
-                const text = 'Check out this professional quiz generated by QuizGo.com!';
+                const title = 'SPLINTR Deployed Quiz';
+                const text = 'Sleek custom evaluation synthesized by SPLINTR assessment engine.';
                 const url = window.location.href;
                 
                 try {
@@ -1751,7 +2835,6 @@
                 }
             });
             
-            // Download Quiz as HTML
             downloadBtn.addEventListener('click', () => {
                 const questionsContainer = document.getElementById('questionsContainer');
                 if (!questionsContainer || !questionsContainer.children.length) {
@@ -1767,43 +2850,41 @@
         
         function generateQuizHTML() {
             const questionsContainer = document.getElementById('questionsContainer');
-            const currentTheme = document.body.getAttribute('data-theme') || 'light';
             
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizGo.com Professional Quiz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>SPLINTR Deployed Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: ${currentTheme === 'dark' ? '#111827' : '#ffffff'}; 
-            color: ${currentTheme === 'dark' ? '#f9fafb' : '#1f2937'};
-            padding: 2rem; 
+            font-family: 'JetBrains Mono', sans-serif;
+            background: #F0F0F2; 
+            color: #1A1A2E;
+            padding: 3rem; 
             line-height: 1.6;
         }
         .quiz-header { 
             text-align: center; 
             margin-bottom: 3rem; 
-            padding: 2rem;
-            background: ${currentTheme === 'dark' ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.95)'};
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border: 1px solid ${currentTheme === 'dark' ? '#374151' : '#e5e7eb'};
+            padding: 2.5rem;
+            background: rgba(240, 240, 242, 0.4);
+            border: 1px solid rgba(26, 26, 46, 0.08);
         }
         .quiz-title { 
-            font-family: 'Poppins', sans-serif; 
-            font-size: 2.5rem; 
-            color: #2563eb; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 2.2rem; 
+            color: #1A1A2E; 
             margin-bottom: 1rem; 
+            font-weight: 800;
         }
         .quiz-subtitle {
-            color: ${currentTheme === 'dark' ? '#d1d5db' : '#6b7280'};
-            font-size: 1.1rem;
+            color: #5C5C70;
+            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
         .quiz-info {
@@ -1811,90 +2892,75 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: ${currentTheme === 'dark' ? '#d1d5db' : '#6b7280'};
+            font-size: 0.8rem;
+            color: #5C5C70;
         }
         .question-card { 
-            background: ${currentTheme === 'dark' ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.95)'};
-            border-radius: 16px; 
+            background: rgba(240, 240, 242, 0.3);
             margin-bottom: 2rem; 
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border: 1px solid ${currentTheme === 'dark' ? '#374151' : '#e5e7eb'};
+            border: 1px solid rgba(26, 26, 46, 0.08);
+            padding: 2.5rem;
         }
         .question-header { 
-            background: linear-gradient(135deg, #374151 0%, #1f2937 100%); 
-            color: white; 
-            padding: 1.5rem 2rem; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
+            border-bottom: 1px solid rgba(26, 26, 46, 0.08);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
         }
         .question-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
         .question-type-badge {
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid #1A1A2E;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-        .question-type-badge.mcq { background: #10b981; color: white; }
-        .question-type-badge.true_false { background: #f59e0b; color: white; }
-        .question-type-badge.fill_blank { background: #ef4444; color: white; }
-        .question-type-badge.essay { background: #6b7280; color: white; }
-        .question-content { padding: 2rem; }
-        .question-text { font-size: 1.3rem; font-weight: 600; margin-bottom: 2rem; line-height: 1.6; }
-        .options-list { display: grid; gap: 1rem; margin: 2rem 0; }
+        .question-text { font-size: 1.15rem; font-weight: 600; margin-bottom: 1.5rem; color: #1A1A2E; font-family: 'Montserrat', sans-serif; }
+        .options-list { display: grid; gap: 0.75rem; margin: 1.5rem 0; }
         .option-item { 
-            padding: 1.2rem 1.5rem; 
-            border: 2px solid ${currentTheme === 'dark' ? '#374151' : '#e5e7eb'}; 
-            border-radius: 12px; 
-            background: ${currentTheme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(37, 99, 235, 0.02)'};
+            padding: 0.8rem 1.2rem; 
+            border: 1px solid rgba(26, 26, 46, 0.08); 
+            background: rgba(240, 240, 242, 0.5);
             font-weight: 500;
+            font-size: 0.85rem;
         }
         .answer-section { 
-            background: rgba(16, 185, 129, 0.1); 
-            padding: 1.5rem; 
-            border-radius: 12px; 
-            border-left: 4px solid #10b981; 
-            margin: 2rem 0; 
+            background: rgba(16, 185, 129, 0.04); 
+            padding: 1rem 1.25rem; 
+            border-left: 3px solid #10B981; 
+            margin: 1.5rem 0 0.75rem 0; 
         }
         .explanation-section { 
-            background: rgba(37, 99, 235, 0.1); 
-            padding: 1.5rem; 
-            border-radius: 12px; 
-            border-left: 4px solid #2563eb; 
+            background: rgba(74, 144, 226, 0.04); 
+            padding: 1rem 1.25rem; 
+            border-left: 3px solid #4A90E2; 
         }
         .answer-label, .explanation-label { 
             font-weight: 700; 
-            margin-bottom: 0.5rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 0.5rem; 
+            margin-bottom: 0.25rem; 
+            font-size: 0.75rem;
+            text-transform: uppercase;
         }
-        .answer-label { color: #10b981; }
-        .explanation-label { color: #2563eb; }
-        @media print {
-            body { background: white; color: black; }
-            .question-card { break-inside: avoid; }
-        }
+        .answer-label { color: #10B981; }
+        .explanation-label { color: #4A90E2; }
     </style>
 </head>
 <body>
     <div class="quiz-header">
         <h1 class="quiz-title">
-            <i class="fas fa-graduation-cap"></i> QuizGo.com Professional Quiz
+            <i class="fas fa-graduation-cap"></i> SPLINTR Evaluation Matrix
         </h1>
-        <p class="quiz-subtitle">Generated by QuizGo.com - Professional Quiz Generation Platform</p>
+        <p class="quiz-subtitle">Generated by SPLINTR - Professional Cognitive Assessment Engine</p>
         <div class="quiz-info">
-            <span><i class="fas fa-calendar"></i> Generated: ${new Date().toLocaleDateString()}</span>
-            <span><i class="fas fa-clock"></i> Time: ${new Date().toLocaleTimeString()}</span>
-            <span><i class="fas fa-question-circle"></i> Questions: ${questionsContainer.children.length}</span>
+            <span>// GENERATED: ${new Date().toLocaleDateString()}</span>
+            <span>// ITEMS COUNT: ${questionsContainer.children.length}</span>
         </div>
     </div>
     <div class="questions-container">
@@ -1909,7 +2975,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `QuizGo_Professional_Quiz_${new Date().toISOString().split('T')[0]}.html`;
+            a.download = `SPLINTR_Assessment_${new Date().toISOString().split('T')[0]}.html`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -1922,11 +2988,18 @@
             toast.style.position = 'fixed';
             toast.style.top = '100px';
             toast.style.right = '2rem';
-            toast.style.zIndex = '2001';
+            toast.style.zIndex = '5000';
+            
+            const icons = {
+                success: 'check-circle',
+                error: 'exclamation-triangle',
+                warning: 'exclamation-circle'
+            };
+            
             toast.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'exclamation-circle'}" style="font-size: 1.5rem;"></i>
-                    <div>${message}</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-${icons[type]}" style="font-size: 1.25rem;"></i>
+                    <div style="font-weight:600; text-transform: uppercase;">${message}</div>
                 </div>
             `;
             
@@ -1934,39 +3007,118 @@
             
             setTimeout(() => {
                 toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 500);
+                setTimeout(() => toast.remove(), 400);
             }, 3000);
         }
-        
-        // Initialize QuizGo
+
+        // ----------------------------------------------------
+        // 3. INITIALIZATION CALLS
+        // ----------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            const quizGenerator = new QuizGenerator();
-            console.log('📚 QuizGo.com Professional Quiz Generator initialized!');
-            console.log('🎓 Ready to help teachers create amazing quizzes!');
+            // Theme toggle cycle logic
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeToggleText = document.getElementById('themeToggleText');
             
-            // Initialize Quiz Actions
-            initializeQuizActions();
-        });
-        
-        // Keyboard shortcuts for teachers
-        document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
-                e.preventDefault();
-                document.getElementById('pdfFile').click();
-            }
+            const themes = ['light', 'dark', 'dark-code'];
+            let currentThemeIdx = 0;
             
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-                e.preventDefault();
-                const fileInput = document.getElementById('pdfFile');
-                if (fileInput.files.length > 0) {
-                    document.getElementById('generateBtn').click();
+            // Check local storage or default to light
+            const savedTheme = localStorage.getItem('splintr-theme') || 'light';
+            currentThemeIdx = themes.indexOf(savedTheme);
+            if (currentThemeIdx === -1) currentThemeIdx = 0;
+            
+            applyTheme(themes[currentThemeIdx]);
+            
+            themeToggleBtn.addEventListener('click', () => {
+                currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+                const nextTheme = themes[currentThemeIdx];
+                applyTheme(nextTheme);
+                localStorage.setItem('splintr-theme', nextTheme);
+            });
+            
+            function applyTheme(themeName) {
+                document.body.classList.remove('theme-light', 'theme-dark', 'theme-dark-code');
+                document.body.classList.add(`theme-${themeName}`);
+                
+                // Update toggle button label
+                let displayName = 'Light';
+                if (themeName === 'dark') displayName = 'Dark';
+                else if (themeName === 'dark-code') displayName = 'Dark Code';
+                themeToggleText.textContent = displayName;
+                
+                // Redraw blueprint grid to adjust colors
+                if (typeof drawQuantumBlueprint === 'function') {
+                    drawQuantumBlueprint();
                 }
             }
+
+            // Headline hover features rotation switcher
+            const heroHeadline = document.getElementById('heroHeadline');
+            const headlines = [
+                { bold: "One piece of content.", thin: "Every platform. Instantly." },
+                { bold: "High-Fidelity Parser.", thin: "Complex textbooks processed instantly." },
+                { bold: "Gemini AI Synthesis.", thin: "Custom university-grade assessments." },
+                { bold: "Supabase Telemetry.", thin: "Secure sync and historical analytics." }
+            ];
+            let currentHeadlineIdx = 0;
+            let isTransitioning = false;
             
-            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
-                e.preventDefault();
-                document.getElementById('themeToggle').click();
+            if (heroHeadline) {
+                heroHeadline.addEventListener('mouseenter', () => {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    heroHeadline.classList.add('fade-out');
+                    setTimeout(() => {
+                        currentHeadlineIdx = (currentHeadlineIdx + 1) % headlines.length;
+                        const item = headlines[currentHeadlineIdx];
+                        heroHeadline.innerHTML = `${item.bold}<br><span class="thin">${item.thin}</span>`;
+                        heroHeadline.classList.remove('fade-out');
+                        heroHeadline.classList.add('fade-in');
+                        setTimeout(() => {
+                            heroHeadline.classList.remove('fade-in');
+                            isTransitioning = false;
+                        }, 250);
+                    }, 250);
+                });
             }
+
+            // Draw Background quantum circuit schematic
+            drawQuantumBlueprint();
+            window.addEventListener('resize', drawQuantumBlueprint);
+
+            // Start 3D neural brain particle rendering engine
+            const canvas = document.getElementById('particleCanvas');
+            const brainMatrix = new NeuralMatrix(canvas);
+            
+            function animate() {
+                brainMatrix.draw();
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            // Launch Core Quiz controller
+            const quizGenerator = new QuizGenerator();
+            initializeQuizActions();
+            
+            // Check query param for active tab redirection
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetTab = urlParams.get('tab');
+            if (targetTab) {
+                // Wait briefly for constructor checkAuth to resolve
+                setTimeout(() => {
+                    quizGenerator.switchTab(targetTab);
+                }, 150);
+            }
+            
+            // Set footer tab trigger bindings as well
+            document.querySelectorAll('.footer-link-item.tab-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    quizGenerator.switchTab(trigger.dataset.tab);
+                });
+            });
+
+            console.log('📚 SPLINTR Assessment Redesign initialized!');
         });
     </script>
 </body>

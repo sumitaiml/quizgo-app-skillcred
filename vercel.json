@@ -1,0 +1,21 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/upload",
+      "destination": "https://quizgo-backend.onrender.com/upload"
+    },
+    {
+      "source": "/auth/:path*",
+      "destination": "https://quizgo-backend.onrender.com/auth/:path*"
+    },
+    {
+      "source": "/download/:path*",
+      "destination": "https://quizgo-backend.onrender.com/download/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://quizgo-backend.onrender.com/api/:path*"
+    }
+  ]
+}
