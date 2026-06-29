@@ -1868,6 +1868,36 @@
         </footer>
     </div>
 
+    <!-- BACKEND STATUS DIALOG (MODAL) -->
+    <div class="modal-overlay" id="backendModal" style="display: none; z-index: 10000;">
+        <div class="modal" style="max-width: 440px;">
+            <div class="bracket-corners">
+                <span class="corner tl"></span>
+                <span class="corner tr"></span>
+                <span class="corner bl"></span>
+                <span class="corner br"></span>
+            </div>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-server" style="margin-right: 0.5rem; color: var(--accent-warning);"></i> Connection Protocol
+                </div>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 1.5rem 0.5rem;">
+                <div id="backendSpinner" class="spinner-container" style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-cog fa-spin fa-3x" style="color: var(--accent-warning); transition: var(--transition);"></i>
+                </div>
+                <h3 id="backendModalTitle" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">BACKEND CONNECTING</h3>
+                <p id="backendModalDesc" style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace;">
+                    Synchronizing cloud environment state...
+                </p>
+                <div class="modal-actions" style="display: flex; gap: 0.75rem; justify-content: center; width: 100%;">
+                    <button class="btn-cta" id="backendWaitBtn" style="flex: 1.2; font-size: 0.75rem; height: 38px; line-height: 38px; padding: 0 1rem;" disabled>Waking up...</button>
+                    <button class="btn-secondary" id="backendSkipBtn" style="flex: 0.8; border: 1.5px solid var(--pane-border); background: transparent; color: var(--text-primary); cursor: pointer; padding: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; height: 38px; line-height: 35px; text-align: center; font-weight: 600;">Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- AUTHENTICATION DIALOG (MODAL) -->
     <div class="modal-overlay" id="authModal">
         <div class="modal">
@@ -3182,10 +3212,17 @@
                 });
             });
 
-            // Monitor Render backend connection status and handle waking up
+            // Monitor Render backend connection status and handle waking up with Modal Overlay
             async function monitorBackendStatus(generator) {
                 const statusPill = document.getElementById('backendStatusPill');
                 const statusText = document.getElementById('backendStatusText');
+                const backendModal = document.getElementById('backendModal');
+                const backendModalTitle = document.getElementById('backendModalTitle');
+                const backendModalDesc = document.getElementById('backendModalDesc');
+                const backendWaitBtn = document.getElementById('backendWaitBtn');
+                const backendSkipBtn = document.getElementById('backendSkipBtn');
+                const backendSpinner = document.getElementById('backendSpinner');
+
                 if (!statusPill || !statusText) return;
 
                 const setStatus = (state, label) => {
@@ -3195,6 +3232,42 @@
 
                 let retries = 0;
                 const maxRetries = 25; // Check for up to 75 seconds
+                let modalShown = false;
+
+                const showActivationModal = () => {
+                    if (modalShown) return;
+                    modalShown = true;
+                    if (backendModal) {
+                        backendModal.style.display = 'flex';
+                        backendModal.style.alignItems = 'center';
+                        backendModal.style.justifyContent = 'center';
+                    }
+                };
+
+                const closeActivationModal = () => {
+                    if (backendModal) {
+                        if (backendSpinner) {
+                            backendSpinner.innerHTML = '<i class="fas fa-check-circle fa-3x" style="color: var(--accent-green); transition: all 0.3s ease;"></i>';
+                        }
+                        if (backendModalTitle) backendModalTitle.textContent = 'CONNECTION SECURED';
+                        if (backendModalDesc) backendModalDesc.textContent = 'Backend is fully awake and synchronized!';
+                        if (backendWaitBtn) {
+                            backendWaitBtn.textContent = 'Ready!';
+                            backendWaitBtn.style.background = 'var(--accent-green)';
+                            backendWaitBtn.style.color = '#fff';
+                        }
+
+                        setTimeout(() => {
+                            backendModal.style.display = 'none';
+                        }, 1200);
+                    }
+                };
+
+                if (backendSkipBtn) {
+                    backendSkipBtn.addEventListener('click', () => {
+                        if (backendModal) backendModal.style.display = 'none';
+                    });
+                }
 
                 const checkConnection = async () => {
                     const controller = new AbortController();
@@ -3205,20 +3278,38 @@
                         clearTimeout(timeoutId);
                         if (res.ok) {
                             setStatus('active', 'Backend Active');
+                            if (modalShown) {
+                                closeActivationModal();
+                            }
                             return true;
                         }
                     } catch (err) {
                         clearTimeout(timeoutId);
                     }
 
+                    // Show the waking modal if not connected instantly
+                    showActivationModal();
+
                     retries++;
-                    if (retries < maxRetries) {
-                        setStatus('activating', `Backend waking up... (${retries * 3}s)`);
-                        return false;
-                    } else {
+                    const progressLabel = `Backend waking up... (${retries * 3}s)`;
+                    setStatus('activating', progressLabel);
+
+                    if (backendModalTitle) backendModalTitle.textContent = 'BACKEND ACTIVATING';
+                    if (backendModalDesc) {
+                        backendModalDesc.textContent = `The server is hosted on Render's Free tier and is currently waking up (elapsed: ${retries * 3}s). Please wait for database connection synchronization.`;
+                    }
+                    if (backendWaitBtn) {
+                        backendWaitBtn.textContent = `Waking up... (${retries * 3}s)`;
+                    }
+
+                    if (retries >= maxRetries) {
                         setStatus('checking', 'Backend Sleeping');
+                        if (backendModalTitle) backendModalTitle.textContent = 'BACKEND SLEEPING';
+                        if (backendModalDesc) backendModalDesc.textContent = 'The backend is taking longer than usual to wake up. You can wait or proceed anyway.';
+                        if (backendWaitBtn) backendWaitBtn.textContent = 'Retry Connection';
                         return false;
                     }
+                    return false;
                 };
 
                 // Initial check
@@ -3230,7 +3321,6 @@
                     let success = await checkConnection();
                     if (success) {
                         clearInterval(interval);
-                        // Rerun auth check once database is up
                         if (generator && typeof generator.checkAuth === 'function') {
                             generator.checkAuth();
                         }
